@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>55852578623-krvphotetkoqo9cflibli4nu55jsjksj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.55852578623-krvphotetkoqo9cflibli4nu55jsjksj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvm_spdeHZAm9sBfHspSJqC7bmA3F6gHY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>55852578623</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jbwaring.Instaframe</string>
+	<key>PROJECT_ID</key>
+	<string>instaframe-7bcd6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>instaframe-7bcd6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:55852578623:ios:35d75831a4cac7fbcac58a</string>
+</dict>
+</plist>
