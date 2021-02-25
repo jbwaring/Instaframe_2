@@ -19,6 +19,7 @@ Framework Used:
 
 Important Note: This project uses CocoaPods:
 > To open the project, open Instaframe.xcworkspace and NOT Instaframe.xcodeproj
+> Pods.xcworkspace is not managed in source control. When you clone the repository, run $pod install to download Pods dependencies.
 
 Used Pods:
 >pod 'Firebase/Auth'<br />
