@@ -1,0 +1,9 @@
+${PODS_ROOT}/Target Support Files/Pods-Instaframe/Pods-Instaframe-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FirebaseAuth-iOS14.0/FirebaseAuth.framework
+${BUILT_PRODUCTS_DIR}/FirebaseCore-iOS14.0/FirebaseCore.framework
+${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics-iOS14.0/FirebaseCoreDiagnostics.framework
+${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS14.0/GTMSessionFetcher.framework
+${BUILT_PRODUCTS_DIR}/GoogleDataTransport-iOS14.0/GoogleDataTransport.framework
+${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS14.0/GoogleUtilities.framework
+${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS14.0/FBLPromises.framework
+${BUILT_PRODUCTS_DIR}/nanopb-iOS14.0/nanopb.framework
