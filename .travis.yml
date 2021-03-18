@@ -7,7 +7,7 @@ before_script:
 
 
 script:
-   - NSUnbufferedIO=YES xcodebuild test -workspace Instaframe.xcworkspace -scheme Instaframe -destination "platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro" 2>&1
+   - xcodebuild test -workspace Instaframe.xcworkspace -scheme Instaframe -destination "platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro" | xcpretty -s && exit ${PIPESTATUS[0]}
    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
