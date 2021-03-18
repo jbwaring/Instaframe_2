@@ -1,10 +1,13 @@
 language: swift
 osx_image: xcode12.2
 
-before_script: pod install
+before_script: 
+            - pod install
+            - brew install xcbeautify
+
 
 script:
-   - xcodebuild test -workspace Instaframe.xcworkspace -scheme Instaframe -destination "platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro" 
+   - NSUnbufferedIO=YES xcodebuild test -workspace Instaframe.xcworkspace -scheme Instaframe -destination "platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro" 2>&1 | xcbeautify
    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
