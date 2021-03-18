@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "7B5040DD-6A2D-4A49-8714-7D076F94CC16",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Instaframe.xcodeproj",
+      "identifier" : "030504F425CF25580066F19D",
+      "name" : "Instaframe"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Instaframe.xcodeproj",
+        "identifier" : "03B7648926019BC600469BFA",
+        "name" : "InstaframeTests"
+      }
+    }
+  ],
+  "version" : 1
+}
