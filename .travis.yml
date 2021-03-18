@@ -3,9 +3,7 @@ osx_image: xcode12.2
 
 before_script: 
             - pod install
-            - brew update
-            - brew cask install thii/swift-runtime/swift-runtime
-            - brew install xcbeautify
+      
 
 
 script:
