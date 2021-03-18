@@ -7,6 +7,7 @@ target 'Instaframe' do
 
   # Pods for Instaframe
 pod 'Firebase/Auth'
+pod 'xcbeautify'
 end
 target 'InstaframeTests' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -14,4 +15,5 @@ target 'InstaframeTests' do
 
   # Pods for Instaframe
 pod 'Firebase/Auth'
+pod 'xcbeautify'
 end
