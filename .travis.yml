@@ -8,7 +8,7 @@ env:
 before_script: pod install
 
 script:
-   - xcodebuild -quiet -showTestPlans clean test -workspace Instaframe.xcworkspace -scheme Instaframe -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+   - xcodebuild -quiet -showTestPlans clean test -workspace Instaframe.xcworkspace -scheme InstaframeTests -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
