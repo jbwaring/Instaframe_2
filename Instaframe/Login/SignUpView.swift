@@ -163,7 +163,7 @@ extension SignUpView {
     func checkUserUnique() -> Bool {
 //        if(email != ""){   FOR NOW EMAIL IS NOT CHECKED !
 //        Auth.auth().fetchSignInMethods(forEmail: email) { (array, error) in
-//            print(error?.localizedDescription ?? "ERROR in checkUserUnique")
+//            print(error?.lo    dscalizedDescription ?? "ERROR in checkUserUnique")
 //            print(array)
 //            }
 //        }
