@@ -5,7 +5,7 @@ env:
   matrix:
    - DESTINATION="platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro"
 
-before_script: cd Instaframe
+before_script: 
 
 script:
    - xcodebuild clean test -project Instaframe.xcodeproj -scheme Instaframe -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
