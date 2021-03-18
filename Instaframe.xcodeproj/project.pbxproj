@@ -32,11 +32,11 @@
 		035B6ABE25D1909D00081C58 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6ABD25D1909D00081C58 /* OnBoardingView.swift */; };
 		035B6AC125D190D600081C58 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC025D190D600081C58 /* WelcomeView.swift */; };
 		035B6AC425D1970800081C58 /* OnBoardAccountCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */; };
+		038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27E026028B3F006B32C0 /* LoginTest.swift */; };
+		038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27FA2602944F006B32C0 /* SignUpViewTests.swift */; };
 		03A3F90C25D0BC25005A4AEB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F90B25D0BC25005A4AEB /* Home.swift */; };
 		03A3F90F25D0BF47005A4AEB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F90E25D0BF47005A4AEB /* SettingsView.swift */; };
-		03B7648D26019BC600469BFA /* InstaframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B7648C26019BC600469BFA /* InstaframeTests.swift */; };
 		03B764AE26019C6D00469BFA /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 03B764AD26019C6D00469BFA /* ViewInspector */; };
-		03B764B226019C8C00469BFA /* TestLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B764B126019C8C00469BFA /* TestLogin.swift */; };
 		03B764B62601A07200469BFA /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B764B52601A07200469BFA /* HomeFeedView.swift */; };
 		03C1080925D078C600BF7F05 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080825D078C600BF7F05 /* CardView.swift */; };
 		03C1080C25D07B6600BF7F05 /* InstaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080B25D07B6600BF7F05 /* InstaUser.swift */; };
@@ -80,12 +80,12 @@
 		035B6ABD25D1909D00081C58 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		035B6AC025D190D600081C58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardAccountCreate.swift; sourceTree = "<group>"; };
+		038B27E026028B3F006B32C0 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		038B27FA2602944F006B32C0 /* SignUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTests.swift; sourceTree = "<group>"; };
 		03A3F90B25D0BC25005A4AEB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		03A3F90E25D0BF47005A4AEB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		03B7648A26019BC600469BFA /* InstaframeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaframeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		03B7648C26019BC600469BFA /* InstaframeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaframeTests.swift; sourceTree = "<group>"; };
 		03B7648E26019BC600469BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03B764B126019C8C00469BFA /* TestLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLogin.swift; sourceTree = "<group>"; };
 		03B764B52601A07200469BFA /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
 		03C1080825D078C600BF7F05 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		03C1080B25D07B6600BF7F05 /* InstaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaUser.swift; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 				0317F2E325D0937F002A21F8 /* LoginLoadingView.swift */,
 				0317F2EB25D09493002A21F8 /* LottieView.swift */,
 				0317F2DB25D09001002A21F8 /* SignUpView.swift */,
-				03B764B126019C8C00469BFA /* TestLogin.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -230,8 +229,9 @@
 		03B7648B26019BC600469BFA /* InstaframeTests */ = {
 			isa = PBXGroup;
 			children = (
-				03B7648C26019BC600469BFA /* InstaframeTests.swift */,
 				03B7648E26019BC600469BFA /* Info.plist */,
+				038B27E026028B3F006B32C0 /* LoginTest.swift */,
+				038B27FA2602944F006B32C0 /* SignUpViewTests.swift */,
 			);
 			path = InstaframeTests;
 			sourceTree = "<group>";
@@ -447,7 +447,6 @@
 				0358D85425D99710001A3117 /* PostCreatorView.swift in Sources */,
 				03C1080C25D07B6600BF7F05 /* InstaUser.swift in Sources */,
 				03C1080925D078C600BF7F05 /* CardView.swift in Sources */,
-				03B764B226019C8C00469BFA /* TestLogin.swift in Sources */,
 				0305051A25CF27020066F19D /* InstaframePost.swift in Sources */,
 				035B6ABE25D1909D00081C58 /* OnBoardingView.swift in Sources */,
 				030504F925CF25580066F19D /* AppDelegate.swift in Sources */,
@@ -474,7 +473,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03B7648D26019BC600469BFA /* InstaframeTests.swift in Sources */,
+				038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */,
+				038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
