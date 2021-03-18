@@ -1,4 +1,7 @@
- matrix:
+language: swift
+osx_image: xcode12.2 
+ env:
+  matrix:
     - DESTINATION="platform=iOS Simulator,OS=14.2,name=iPhone 11 Pro"
 
  before_script: cd Instaframe
