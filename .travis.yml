@@ -8,7 +8,7 @@ env:
 before_script: cd Instaframe
 
 script:
-   - xcodebuild clean test -project Instaframe.xcworkspace -scheme Instaframe -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+   - xcodebuild clean test -project Instaframe.xcproject -scheme Instaframe -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
