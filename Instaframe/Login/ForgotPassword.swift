@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 struct ForgotPassword: View {
+    internal var didAppear: ((Self) -> Void)? // 1.
     @Environment(\.presentationMode) var presentationMode
     @State var email:String = ""
     @State var showError:Bool = false
@@ -53,6 +54,7 @@ struct ForgotPassword: View {
         .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.9843137255, blue: 0.9843137255, alpha: 1)), Color(#colorLiteral(red: 0.9137254902, green: 0.9098039216, blue: 0.9764705882, alpha: 1))]), startPoint: .top, endPoint: .bottom))
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .shadow(color: Color(.black).opacity(0.3), radius: 20, x: 0, y: 4)
+        .onAppear { self.didAppear?(self) } // 2.
     }
 }
 

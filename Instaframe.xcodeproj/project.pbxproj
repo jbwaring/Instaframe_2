@@ -40,6 +40,7 @@
 		03B764B62601A07200469BFA /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B764B52601A07200469BFA /* HomeFeedView.swift */; };
 		03C1080925D078C600BF7F05 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080825D078C600BF7F05 /* CardView.swift */; };
 		03C1080C25D07B6600BF7F05 /* InstaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080B25D07B6600BF7F05 /* InstaUser.swift */; };
+		03C4C9AB2603B9DD00FA322B /* ForgotPasswordViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4C9AA2603B9DD00FA322B /* ForgotPasswordViewTests.swift */; };
 		B8BEA386FA23BBA6C92D8439 /* Pods_Instaframe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FEDDE8A899DE832D4A00F8 /* Pods_Instaframe.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		03B764B52601A07200469BFA /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
 		03C1080825D078C600BF7F05 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		03C1080B25D07B6600BF7F05 /* InstaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaUser.swift; sourceTree = "<group>"; };
+		03C4C9AA2603B9DD00FA322B /* ForgotPasswordViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewTests.swift; sourceTree = "<group>"; };
 		1C7051FA4DA0FC2CBA25D495 /* Pods-InstaframeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaframeTests.debug.xcconfig"; path = "Target Support Files/Pods-InstaframeTests/Pods-InstaframeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		584B02DC0F4525762861375E /* Pods-Instaframe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instaframe.debug.xcconfig"; path = "Target Support Files/Pods-Instaframe/Pods-Instaframe.debug.xcconfig"; sourceTree = "<group>"; };
 		B0FEDDE8A899DE832D4A00F8 /* Pods_Instaframe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instaframe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 				03B7648E26019BC600469BFA /* Info.plist */,
 				038B27E026028B3F006B32C0 /* LoginTest.swift */,
 				038B27FA2602944F006B32C0 /* SignUpViewTests.swift */,
+				03C4C9AA2603B9DD00FA322B /* ForgotPasswordViewTests.swift */,
 			);
 			path = InstaframeTests;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */,
+				03C4C9AB2603B9DD00FA322B /* ForgotPasswordViewTests.swift in Sources */,
 				038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
