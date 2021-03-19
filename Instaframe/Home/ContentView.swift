@@ -8,10 +8,11 @@
 import SwiftUI
 import CoreData
 import CloudKit
-
+import Combine
 
 struct ContentView: View {
     internal var didAppear: ((Self) -> Void)? // 1.
+    internal let inspection = Inspection<Self>() // 1.
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: InstaframePost.getPostFetchRequest())  var postList: FetchedResults<InstaframePost>
     @Binding var showSettings:Bool
@@ -26,7 +27,7 @@ struct ContentView: View {
                 Spacer()
                     //Image("sampleimage")
                 //Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
-                Image(uiImage: UIImage(data: currentUser.avatar!)!)
+                Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .background(Color.white)
@@ -66,7 +67,7 @@ struct ContentView: View {
             
         }
         .onAppear { self.didAppear?(self) } // 2.
-        
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // 2.
 
     }
     
@@ -108,3 +109,14 @@ struct ContentView_Previews: PreviewProvider {
 
 let sampleUser = InstaUser()
 
+internal final class InspectionContentView<ContentView> where ContentView: View {
+
+    let notice = PassthroughSubject<UInt, Never>()
+    var callbacks = [UInt: (ContentView) -> Void]()
+
+    func visit(_ view: ContentView, _ line: UInt) {
+        if let callback = callbacks.removeValue(forKey: line) {
+            callback(view)
+        }
+    }
+}

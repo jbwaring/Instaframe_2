@@ -14,25 +14,24 @@ import SwiftUI
 class ContentViewTests: XCTestCase {
     
     func testHome() throws {
-        let currentUser = Instaframe.InstaUser()
-        var contentView = ContentView(showSettings: .constant(false), currentUser: .constant(currentUser))
-        
-        let exp2  = contentView.on(\.didAppear) { view in
+
+        let currentUser = Instaframe.InstaUser(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        let sut = ContentView(showSettings: .constant(false), currentUser: .constant(currentUser))
+        let exp = XCTestExpectation(description: #function)
+        sut.inspection.inspect(after: 0) {view in
             try view.actualView().currentUser = InstaUser(context: try view.actualView().managedObjectContext)
             XCTAssertEqual(try view.actualView().inspect().vStack(0).hStack(0).text(0).string(), "Instaframe")
-            XCTAssertEqual(try view.actualView().inspect().vStack(0).hStack(0).image(2).actualImage(), Image(uiImage: UIImage(data: try view.actualView().currentUser.avatar!)!))
-            try view.actualView().inspect().vStack(0).hStack(0).button(3).tap()
-            XCTAssertTrue(try view.actualView().showSettings)
-
+            try view.vStack(0).hStack(0).button(3).tap()
             
+            exp.fulfill()
         }
-//        ViewHosting.host(view: contentView)
-//            wait(for: [exp2], timeout: 2)
-       
+
+        ViewHosting.host(view: sut)
+        wait(for: [exp], timeout: 0.1)
+        
+        
         
     }
 }
-
-extension ContentView: Inspectable {}
-
-
+extension ContentView: Inspectable { }
+extension InspectionContentView: InspectionEmissary where ContentView: Inspectable { }
