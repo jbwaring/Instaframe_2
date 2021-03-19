@@ -1,25 +1,20 @@
+//
+//  HomeView.swift
+//  Instaframe
+//
+//  Created by Mohsen lhaf on 2021-02-17.
+//
+
 import SwiftUI
 
-struct TestImages : Identifiable {
-    let id = UUID()
-    let str:String
-}
-
-let images = [TestImages(str: "Water35"), TestImages(str: "Water35"), TestImages(str: "Water35"), TestImages(str: "Water35")]
-
-
 struct HomeView: View {
-    
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(fetchRequest: InstaframePost.getPostFetchRequest())  var postList: FetchedResults<InstaframePost>
-    @FetchRequest(fetchRequest: InstaUser.fetchUserWithUUID(userUUID: "uLnI3AK5HueybPWqRThqQ2VL6m33"))  var shownUser: FetchedResults<InstaUser>
     @State var showCard = false
-    @State var testAndrew = "Andrew"
+    
     var body: some View {
-        ScrollView {
+        VStack {
             
             HStack (spacing: 20){
-                Image("Water35")
+                Image("ProfilePic")
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 100, height: 75, alignment: .leading)
@@ -47,14 +42,10 @@ struct HomeView: View {
             
             HStack {
                 VStack (alignment : .leading){
-                    if(shownUser.first != nil){
-                        Text(shownUser.first!.userName!)
+                    Text("Andrew")
                         .font(.subheadline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Text(shownUser.first!.description)
-                    }
-                    
-                    
+                    Text("Engineering student at Concorida 🇨🇦")
                         
                     Text("Football fan ⚽")
                 }
@@ -66,19 +57,43 @@ struct HomeView: View {
             Button(action:{}, label: {
                Text("Follow")
                 .padding()
-                .frame(width: 100, height: 40)
+                .frame(width: 350, height: 40)
+                .foregroundColor(.black)
                 .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .shadow(color: Color(.black).opacity(0.2), radius: 10, x: 0, y: -5)
+                .border(Color.black, width: 3)
                 
+                .cornerRadius(10)
                     })
                    
             VStack{
-                ForEach(postList){ post in
-                    ImageFeedView(showCard: $showCard, post: post)
+                HStack (spacing: 20) {
+                Image("Image 1")
+                    .resizable()
+                    .frame(width: 150, height: 130)
                     
+                Image("Image 2")
+                    .resizable()
+                    .frame(width: 150, height: 130)
                 }
-                
+                .onTapGesture {self.showCard.toggle()}
+            
+                HStack (spacing: 20) {
+                    Image("Group2")
+                    .resizable()
+                    .frame(width: 150, height: 130)
+                    Image("Group1")
+                    .resizable()
+                    .frame(width: 150, height: 130)
+            }
+            
+                HStack (spacing: 20) {
+                    Image("SmilingPic")
+                    .resizable()
+                    .frame(width: 150, height: 130)
+                    Image("StadiumPic")
+                    .resizable()
+                    .frame(width: 150, height: 130)
+            }
                 
             }
             .padding()
@@ -90,25 +105,5 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-    }
-}
-
-extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
-}
-
-struct ImageFeedView: View {
-    @Binding var showCard:Bool
-    @State var post:InstaframePost
-    var body: some View {
-        Image(uiImage: UIImage(data: post.image ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
-            .resizable()
-            .frame(width: UIScreen.screenWidth-10, height: UIScreen.screenWidth-10)
-            .clipShape(RoundedRectangle(cornerRadius: UIScreen.screenWidth/20, style: .continuous))
-            .onTapGesture {
-                self.showCard.toggle()
-            }
     }
 }
