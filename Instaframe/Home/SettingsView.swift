@@ -10,13 +10,8 @@ let preview = true
 struct SettingsView: View {
     @State var showCameraView:Bool = false
     @StateObject var viewModel:ViewModel = ViewModel()
-  //  @State var selectedUIImage = UIImage(data: currentUser.avatar!)
     @Binding var currentUser:InstaUser
-//    init(){
-//        if(currentUser.avatar == nil){
-//            currentUser.avatar = Data()
-//        }
-//    }
+
     var actionSheetAvatar: ActionSheet {
           ActionSheet(title: Text("Change Avatar"), message: nil, buttons: [
               .default(Text("Choose from Camera Roll."), action: {
@@ -38,6 +33,7 @@ struct SettingsView: View {
                         Image(uiImage: UIImage(data: currentUser.avatar!)!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
+                 
                             .background(Color.white)
                             .frame(width: 120, height: 120)
                             .clipShape(Circle())

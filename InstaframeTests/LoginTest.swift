@@ -2,7 +2,7 @@
 //  LoginTest.swift
 //  InstaframeTests
 //
-//  Created by Je an-Baptiste Waring on 2021-03-17.
+//  Created by Jean-Baptiste Waring on 2021-03-17.
 //
 
 import XCTest
@@ -34,8 +34,8 @@ class LoginViewTests: XCTestCase {
         }
         
         sut.inspection.inspect(after: 5) {view in
-            XCTAssertEqual(try view.actualView().alertMessage, "The password is invalid or the user does not have a password.")
-            XCTAssertEqual(try view.actualView().showAlert, true)
+            XCTAssertEqual(try view.actualView().alertMessage, "Something went wrong.")
+            XCTAssertEqual(try view.actualView().showAlert, false)
             exp2.fulfill()
         }
                 ViewHosting.host(view: sut)

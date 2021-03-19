@@ -25,10 +25,11 @@ struct ContentView: View {
                 Text("Instaframe")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                 Spacer()
-                    //Image("sampleimage")
+                //Image("sampleimage")
                 //Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                 Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                     .resizable()
+
                     .aspectRatio(contentMode: .fill)
                     .background(Color.white)
                     .frame(width: 60, height: 60)
@@ -55,12 +56,11 @@ struct ContentView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 250) {
                     ForEach(postList) { item in
-                       GeometryReader { geometry in
-                            CardView(post: item)
+                        GeometryReader { geometry in
+                            CardView(username: item.userID ?? "", postGiven: item)
                                 .padding(.horizontal, 30)
-                                .padding(.top, 30)
-                                
-                       }
+
+                        }
                     }
                 }
             }
@@ -83,10 +83,10 @@ struct ContentView: View {
     func addItem() {
         let newItem = InstaframePost(context: managedObjectContext)
         newItem.userID = "New Item \(postList.count+1)"
-      //  print("There are \(postList[0].likeCount) records")
+        //  print("There are \(postList[0].likeCount) records")
         
         saveItems()
-       
+
     }
     
     func saveItems() {
@@ -98,7 +98,7 @@ struct ContentView: View {
         }
     }
     
-//
+    //
 }
 
 struct ContentView_Previews: PreviewProvider {

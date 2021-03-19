@@ -25,13 +25,14 @@
 		0317F2EC25D09493002A21F8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0317F2EB25D09493002A21F8 /* LottieView.swift */; };
 		0317F2EF25D0971B002A21F8 /* 9561-loading-unicorn.json in Resources */ = {isa = PBXBuildFile; fileRef = 0317F2EE25D0971B002A21F8 /* 9561-loading-unicorn.json */; };
 		0317F2FE25D0A017002A21F8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0317F2FD25D0A017002A21F8 /* Lottie */; };
-		0317F30125D0A077002A21F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0317F30025D0A077002A21F8 /* GoogleService-Info.plist */; };
 		0358D85425D99710001A3117 /* PostCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358D85325D99710001A3117 /* PostCreatorView.swift */; };
 		0358D86D25D99BFC001A3117 /* PostCreatorCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358D86C25D99BFC001A3117 /* PostCreatorCamera.swift */; };
 		0358D87025D99F5B001A3117 /* PostCreatorPostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358D86F25D99F5B001A3117 /* PostCreatorPostPreview.swift */; };
 		035B6ABE25D1909D00081C58 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6ABD25D1909D00081C58 /* OnBoardingView.swift */; };
 		035B6AC125D190D600081C58 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC025D190D600081C58 /* WelcomeView.swift */; };
 		035B6AC425D1970800081C58 /* OnBoardAccountCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */; };
+		0378616B260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
+		0378616C260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
 		038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27E026028B3F006B32C0 /* LoginTest.swift */; };
 		038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27FA2602944F006B32C0 /* SignUpViewTests.swift */; };
 		03A1D8C8260413ED008135F6 /* OnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */; };
@@ -77,13 +78,13 @@
 		0317F2E325D0937F002A21F8 /* LoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLoadingView.swift; sourceTree = "<group>"; };
 		0317F2EB25D09493002A21F8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		0317F2EE25D0971B002A21F8 /* 9561-loading-unicorn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9561-loading-unicorn.json"; sourceTree = "<group>"; };
-		0317F30025D0A077002A21F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0358D85325D99710001A3117 /* PostCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreatorView.swift; sourceTree = "<group>"; };
 		0358D86C25D99BFC001A3117 /* PostCreatorCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreatorCamera.swift; sourceTree = "<group>"; };
 		0358D86F25D99F5B001A3117 /* PostCreatorPostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreatorPostPreview.swift; sourceTree = "<group>"; };
 		035B6ABD25D1909D00081C58 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		035B6AC025D190D600081C58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardAccountCreate.swift; sourceTree = "<group>"; };
+		0378616A260461390091F730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		038B27E026028B3F006B32C0 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		038B27FA2602944F006B32C0 /* SignUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTests.swift; sourceTree = "<group>"; };
 		03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewTests.swift; sourceTree = "<group>"; };
@@ -160,10 +161,10 @@
 				0305050125CF255C0066F19D /* Assets.xcassets */,
 				0305050625CF255C0066F19D /* LaunchScreen.storyboard */,
 				0317F2EE25D0971B002A21F8 /* 9561-loading-unicorn.json */,
-				0317F30025D0A077002A21F8 /* GoogleService-Info.plist */,
 				0305050925CF255C0066F19D /* Info.plist */,
 				030504FE25CF25580066F19D /* Instaframe.xcdatamodeld */,
 				0305051925CF27020066F19D /* InstaframePost.swift */,
+				0378616A260461390091F730 /* GoogleService-Info.plist */,
 				03C1080B25D07B6600BF7F05 /* InstaUser.swift */,
 				0305050325CF255C0066F19D /* Preview Content */,
 			);
@@ -353,7 +354,7 @@
 			files = (
 				0317F2EF25D0971B002A21F8 /* 9561-loading-unicorn.json in Resources */,
 				0305050825CF255C0066F19D /* LaunchScreen.storyboard in Resources */,
-				0317F30125D0A077002A21F8 /* GoogleService-Info.plist in Resources */,
+				0378616B260461390091F730 /* GoogleService-Info.plist in Resources */,
 				0305050525CF255C0066F19D /* Preview Assets.xcassets in Resources */,
 				0305050225CF255C0066F19D /* Assets.xcassets in Resources */,
 			);
@@ -364,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03C75EFA2604288E00B1F6D0 /* Assets.xcassets in Resources */,
+				0378616C260461390091F730 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +650,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jbwaring.Instaframe;
+				PRODUCT_BUNDLE_IDENTIFIER = "jbwaring.Instaframe-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,7 +675,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jbwaring.Instaframe;
+				PRODUCT_BUNDLE_IDENTIFIER = "jbwaring.Instaframe-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

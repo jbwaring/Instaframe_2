@@ -18,8 +18,8 @@ struct LoginView: View {
     @State var isSuccessful:Bool = false
     @State var isFocused:Bool = false
     @State var showAlert:Bool = false
-    @State var email:String = ""
-    @State var password:String = ""
+    @State var email:String = "jb@clovisclothilde.com"
+    @State var password:String = "Jbw18geek"
     @State var showingSignUp:Bool = false
     @State var showingResetPassword:Bool = false
     
