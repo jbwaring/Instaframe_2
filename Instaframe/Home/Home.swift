@@ -26,7 +26,7 @@ struct Home: View {
                     Text("New Post")
 
                 }
-            HomeFeedView(username: "jbwaring", currentuser: currentUser)
+            HomeFeedView(username: currentUser.userName ?? "", currentuser: currentUser)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Me")

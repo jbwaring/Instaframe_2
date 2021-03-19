@@ -34,8 +34,8 @@ struct OnBoardingView: View {
     
 }
 
-struct OnBoardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingView(currentUser: .constant(InstaUser()), newUser: true)
-    }
-}
+//struct OnBoardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingView(currentUser: .constant(InstaUser()), newUser: true)
+//    }
+//}
