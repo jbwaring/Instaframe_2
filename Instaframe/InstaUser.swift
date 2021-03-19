@@ -6,6 +6,8 @@
 //
 
 import CoreData
+import Foundation
+import SwiftUI
 //
 //class InstaframePost:NSManagedObject {
 //
@@ -16,6 +18,8 @@ import CoreData
 // jbwaring userid = uLnI3AK5HueybPWqRThqQ2VL6m33
 
 extension InstaUser {
+    
+
     
     static func fetchAllUsers() -> NSFetchRequest<InstaUser>{
             let request = NSFetchRequest<InstaUser>()

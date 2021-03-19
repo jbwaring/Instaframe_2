@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import CoreData
 struct OnBoardAccountCreate: View {
+    internal var didAppear: ((Self) -> Void)? // 1.
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: InstaUser.fetchAllUsers())  var userList: FetchedResults<InstaUser>
@@ -123,6 +124,7 @@ struct OnBoardAccountCreate: View {
                 LoginLoadingView(userUUID: Auth.auth().currentUser!.uid)
             }
         }
+        .onAppear { self.didAppear?(self) } // 2.
         
         
     }

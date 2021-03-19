@@ -23,7 +23,35 @@ class LoginViewTests: XCTestCase {
         
         XCTAssertEqual(view.alertMessage, "Something went wrong.")
     }
-
+    
+    func testLoginWithExistingUser() throws {
+        var logsToBePrinted = [String()]
+        var viewLogin = LoginView()
+        
+        _ = viewLogin.on(\.didAppear) { view in
+            
+            try view.actualView().email = "unittesting@1234.com"
+            try view.actualView().password = "1234578" //Wrong Password
+            
+            let loginButton = try view.actualView().inspect().find(button: "Login")
+            try loginButton.tap()
+            
+            
+            Thread.sleep(forTimeInterval: 3)
+            logsToBePrinted.append("alertMessage = \(try view.actualView().alertMessage)")
+            logsToBePrinted.append("email = \(try view.actualView().email)")
+            logsToBePrinted.append("password = \(try view.actualView().password)")
+            XCTAssertEqual(try view.actualView().alertMessage, "Something went wrong.")
+            
+            }
+        
+        for line in logsToBePrinted {
+            print(line)
+            print("...")
+        }
+        
+        
+    }
 }
 
 extension LoginView: Inspectable {}

@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
+    internal var didAppear: ((Self) -> Void)? // 1.
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var alertMessage:String = "Something went wrong."
     @State var isLoading:Bool = false
@@ -133,16 +134,21 @@ struct LoginView: View {
                   })
             }
             .statusBar(hidden: true)
+            .onAppear { self.didAppear?(self) } // 2.
             if isLoading {
                 LoginLoadingView(userUUID: Auth.auth().currentUser!.uid)
             }
+            
+            
         }
+        
         
         
 
         
         
     }
+    
     
 }
 
