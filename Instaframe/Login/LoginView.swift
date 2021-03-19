@@ -7,9 +7,12 @@
 
 import SwiftUI
 import Firebase
-
+import Combine
 struct LoginView: View {
+    internal var didAppear: ((Self) -> Void)? // 1.
+    internal let inspection = Inspection<Self>() // 1.
     @Environment(\.managedObjectContext) var managedObjectContext
+    @State var flag: Bool = false
     @State var alertMessage:String = "Something went wrong."
     @State var isLoading:Bool = false
     @State var isSuccessful:Bool = false
@@ -133,16 +136,22 @@ struct LoginView: View {
                   })
             }
             .statusBar(hidden: true)
+            .onAppear { self.didAppear?(self) } // 2.
+            .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // 2.
             if isLoading {
                 LoginLoadingView(userUUID: Auth.auth().currentUser!.uid)
             }
+            
+            
         }
+        
         
         
 
         
         
     }
+    
     
 }
 
@@ -219,6 +228,18 @@ struct LoginWindowBackgroundView: View {
                 .offset(y: -250)
                 .shadow(color: Color(.black).opacity(0.83), radius: 20, x: 0, y: 3)
             
+        }
+    }
+}
+
+internal final class Inspection<LoginView> where LoginView: View {
+
+    let notice = PassthroughSubject<UInt, Never>()
+    var callbacks = [UInt: (LoginView) -> Void]()
+
+    func visit(_ view: LoginView, _ line: UInt) {
+        if let callback = callbacks.removeValue(forKey: line) {
+            callback(view)
         }
     }
 }
