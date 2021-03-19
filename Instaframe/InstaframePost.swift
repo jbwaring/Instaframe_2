@@ -23,4 +23,12 @@ extension InstaframePost {
             return request
         }
     
+    static func getPostFromUserWithUsername(username: String) -> NSFetchRequest<InstaframePost>{
+        let request = NSFetchRequest<InstaframePost>()
+        request.entity = InstaframePost.entity()
+        request.predicate = NSPredicate(format: "userID == %@", username)
+        request.sortDescriptors = [NSSortDescriptor(key: "userID", ascending: true)]
+        return request
+    }
+
 }
