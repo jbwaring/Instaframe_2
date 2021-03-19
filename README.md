@@ -10,7 +10,7 @@ Group A12 Team Members:
 Core Features:
 >Login<br />
 >Post a Picture<br />
->Acces your profile.<br />
+>Access your profile.<br />
 >Like a Post<br />
 
 Framework Used:
