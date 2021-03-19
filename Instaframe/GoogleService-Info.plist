@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>55852578623-krvphotetkoqo9cflibli4nu55jsjksj.apps.googleusercontent.com</string>
+	<string>55852578623-sf30tblpk8jkk4ven0496u4gbap091e9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.55852578623-krvphotetkoqo9cflibli4nu55jsjksj</string>
+	<string>com.googleusercontent.apps.55852578623-sf30tblpk8jkk4ven0496u4gbap091e9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAvm_spdeHZAm9sBfHspSJqC7bmA3F6gHY</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>jbwaring.Instaframe</string>
+	<string>jbwaring.Instaframe-2</string>
 	<key>PROJECT_ID</key>
 	<string>instaframe-7bcd6</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:55852578623:ios:35d75831a4cac7fbcac58a</string>
+	<string>1:55852578623:ios:55bd119ec5a29ccdcac58a</string>
 </dict>
 </plist>

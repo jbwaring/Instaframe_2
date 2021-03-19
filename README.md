@@ -10,9 +10,8 @@ Group A12 Team Members:
 Core Features:
 >Login<br />
 >Post a Picture<br />
->Comment a Picture<br />
+>Access your profile.<br />
 >Like a Post<br />
->Share a Post's Image<br />
 
 Framework Used:
 >SwiftUI<br />

@@ -11,16 +11,25 @@ struct CardView: View {
     @State var preview:Bool = false
     @State var lovedCard:Bool = false
     @State var post:InstaframePost
+    var fetchRequestPosts: FetchRequest<InstaUser>
     @State var shareImage : [UIImage] = []
     func shareSheet() {
             let data = shareImage.first ?? UIImage()
             let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
             UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
         }
+
+    init(username:String, postGiven:InstaframePost) {
+        fetchRequestPosts = FetchRequest<InstaUser>(entity: InstaUser.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userName == %@", username))
+        _post = .init(initialValue: postGiven)
+    }
     var body: some View {
+
+
         VStack {
             Image(uiImage: UIImage(data: post.image ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                 .resizable()
+                .rotationEffect(.degrees(90))
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 240, height: 310, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -29,7 +38,7 @@ struct CardView: View {
                     
                 Spacer()
                 HStack{
-                    Image("sampleimage")
+                    Image(uiImage: UIImage(data: fetchRequestPosts.wrappedValue.first?.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 55, height: 55)

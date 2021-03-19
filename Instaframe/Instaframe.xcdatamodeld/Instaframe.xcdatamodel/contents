@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20D80" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="InstaframePost" representedClassName="InstaframePost" syncable="YES" codeGenerationType="class">
         <attribute name="comments" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
@@ -8,12 +8,16 @@
     </entity>
     <entity name="InstaUser" representedClassName="InstaUser" syncable="YES" codeGenerationType="class">
         <attribute name="avatar" optional="YES" attributeType="Binary"/>
+        <attribute name="followedBy" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="following" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="onBoard" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="postCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="profileDescription" attributeType="String" defaultValueString=""/>
         <attribute name="userID" attributeType="String" defaultValueString=""/>
         <attribute name="userName" attributeType="String" defaultValueString=""/>
     </entity>
     <elements>
         <element name="InstaframePost" positionX="-18" positionY="27" width="128" height="89"/>
-        <element name="InstaUser" positionX="-18" positionY="54" width="128" height="89"/>
+        <element name="InstaUser" positionX="-18" positionY="54" width="128" height="149"/>
     </elements>
 </model>
