@@ -2,7 +2,7 @@
 //  LoginTest.swift
 //  InstaframeTests
 //
-//  Created by Jean-Baptiste Waring on 2021-03-17.
+//  Created by Je an-Baptiste Waring on 2021-03-17.
 //
 
 import XCTest
