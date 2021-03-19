@@ -7,7 +7,7 @@
 
 import XCTest
 import ViewInspector
-
+import Combine
 @testable import Instaframe
 import Firebase
 
@@ -24,34 +24,43 @@ class LoginViewTests: XCTestCase {
         XCTAssertEqual(view.alertMessage, "Something went wrong.")
     }
     
-    func testLoginWithExistingUser() throws {
-        var logsToBePrinted = [String()]
-        var viewLogin = LoginView()
-        
-        _ = viewLogin.on(\.didAppear) { view in
-            
-            try view.actualView().email = "unittesting@1234.com"
-            try view.actualView().password = "1234578" //Wrong Password
-            
-            let loginButton = try view.actualView().inspect().find(button: "Login")
-            try loginButton.tap()
-            
-            
-            Thread.sleep(forTimeInterval: 3)
-            logsToBePrinted.append("alertMessage = \(try view.actualView().alertMessage)")
-            logsToBePrinted.append("email = \(try view.actualView().email)")
-            logsToBePrinted.append("password = \(try view.actualView().password)")
-            XCTAssertEqual(try view.actualView().alertMessage, "Something went wrong.")
-            
-            }
-        
-        for line in logsToBePrinted {
-            print(line)
-            print("...")
+    func testLoginWithNoPassword() throws {
+        let sut = LoginView()
+        let exp = XCTestExpectation(description: #function)
+        let exp2 = XCTestExpectation(description: #function)
+        sut.inspection.inspect(after: 0) {view in
+            try view.find(button: "Login").tap()
+            exp.fulfill()
         }
         
+        sut.inspection.inspect(after: 5) {view in
+            XCTAssertEqual(try view.actualView().alertMessage, "The password is invalid or the user does not have a password.")
+            XCTAssertEqual(try view.actualView().showAlert, true)
+            exp2.fulfill()
+        }
+                ViewHosting.host(view: sut)
+                wait(for: [exp, exp2], timeout: 6)
+    }
+    
+    func testLoginWithExistingUser() throws {
+        let sut = LoginView()
+        let exp = XCTestExpectation(description: #function)
+        let exp2 = XCTestExpectation(description: #function)
+        sut.inspection.inspect(after: 0) {view in
+            try view.actualView().password = "123456789"
+            try view .actualView().email = "unittesting@apple.com"
+            try view.find(button: "Login").tap()
+            exp.fulfill()
+        }
         
+        sut.inspection.inspect(after: 3) {view in
+            XCTAssertEqual(try view.actualView().isSuccessful, true)
+            exp2.fulfill()
+        }
+                ViewHosting.host(view: sut)
+        wait(for: [exp, exp2], timeout: 3.1)
     }
 }
 
 extension LoginView: Inspectable {}
+extension Inspection: InspectionEmissary where LoginView: Inspectable { }

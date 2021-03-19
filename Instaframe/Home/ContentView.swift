@@ -11,7 +11,7 @@ import CloudKit
 
 
 struct ContentView: View {
-   // @State var userUUID:String
+    internal var didAppear: ((Self) -> Void)? // 1.
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: InstaframePost.getPostFetchRequest())  var postList: FetchedResults<InstaframePost>
     @Binding var showSettings:Bool
@@ -64,9 +64,8 @@ struct ContentView: View {
                 }
             }
             
-        }.onAppear(perform: {
-
-        })
+        }
+        .onAppear { self.didAppear?(self) } // 2.
         
 
     }

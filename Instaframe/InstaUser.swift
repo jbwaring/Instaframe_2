@@ -19,7 +19,7 @@ import SwiftUI
 
 extension InstaUser {
     
-
+  
     
     static func fetchAllUsers() -> NSFetchRequest<InstaUser>{
             let request = NSFetchRequest<InstaUser>()

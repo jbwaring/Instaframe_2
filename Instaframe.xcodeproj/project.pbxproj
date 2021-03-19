@@ -35,6 +35,7 @@
 		038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27E026028B3F006B32C0 /* LoginTest.swift */; };
 		038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27FA2602944F006B32C0 /* SignUpViewTests.swift */; };
 		03A1D8C8260413ED008135F6 /* OnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */; };
+		03A1D8CE260422CD008135F6 /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8CD260422CD008135F6 /* ContentViewTests.swift */; };
 		03A3F90C25D0BC25005A4AEB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F90B25D0BC25005A4AEB /* Home.swift */; };
 		03A3F90F25D0BF47005A4AEB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F90E25D0BF47005A4AEB /* SettingsView.swift */; };
 		03B764AE26019C6D00469BFA /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 03B764AD26019C6D00469BFA /* ViewInspector */; };
@@ -42,6 +43,7 @@
 		03C1080925D078C600BF7F05 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080825D078C600BF7F05 /* CardView.swift */; };
 		03C1080C25D07B6600BF7F05 /* InstaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1080B25D07B6600BF7F05 /* InstaUser.swift */; };
 		03C4C9AB2603B9DD00FA322B /* ForgotPasswordViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4C9AA2603B9DD00FA322B /* ForgotPasswordViewTests.swift */; };
+		03C75EFA2604288E00B1F6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0305050125CF255C0066F19D /* Assets.xcassets */; };
 		B8BEA386FA23BBA6C92D8439 /* Pods_Instaframe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FEDDE8A899DE832D4A00F8 /* Pods_Instaframe.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,7 @@
 		038B27E026028B3F006B32C0 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		038B27FA2602944F006B32C0 /* SignUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTests.swift; sourceTree = "<group>"; };
 		03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewTests.swift; sourceTree = "<group>"; };
+		03A1D8CD260422CD008135F6 /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
 		03A3F90B25D0BC25005A4AEB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		03A3F90E25D0BF47005A4AEB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		03B7648A26019BC600469BFA /* InstaframeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaframeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +241,7 @@
 				038B27FA2602944F006B32C0 /* SignUpViewTests.swift */,
 				03C4C9AA2603B9DD00FA322B /* ForgotPasswordViewTests.swift */,
 				03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */,
+				03A1D8CD260422CD008135F6 /* ContentViewTests.swift */,
 			);
 			path = InstaframeTests;
 			sourceTree = "<group>";
@@ -359,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C75EFA2604288E00B1F6D0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +487,7 @@
 				038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */,
 				03A1D8C8260413ED008135F6 /* OnboardingViewTests.swift in Sources */,
 				03C4C9AB2603B9DD00FA322B /* ForgotPasswordViewTests.swift in Sources */,
+				03A1D8CE260422CD008135F6 /* ContentViewTests.swift in Sources */,
 				038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
