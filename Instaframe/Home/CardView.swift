@@ -40,7 +40,7 @@ struct CardView: View {
                 HStack{
                     Image(uiImage: UIImage(data: fetchRequestPosts.wrappedValue.first?.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 55, height: 55)
                         .clipShape(Circle())
                         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 2)

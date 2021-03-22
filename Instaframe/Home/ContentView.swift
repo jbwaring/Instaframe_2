@@ -53,17 +53,29 @@ struct ContentView: View {
             .padding(.top, 30)
 
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 250) {
-                    ForEach(postList) { item in
-                        GeometryReader { geometry in
-                            CardView(username: item.userID ?? "", postGiven: item)
-                                .padding(.horizontal, 30)
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                HStack(spacing: 250) {
+//                    ForEach(postList) { item in
+//                        GeometryReader { geometry in
+//                            CardView(username: item.userID ?? "", postGiven: item)
+//                                .padding(.horizontal, 30)
+//
+//                        }
+//                    }
+//                }
+//            }
 
+            ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            ForEach(postList, id: \.self) { item in
+                                CardView(username: item.userID ?? "", postGiven: item)
+                                    .onAppear {
+                                        print(index)
+                                    }
+                            }
                         }
                     }
-                }
-            }
+
             
         }
         .onAppear { self.didAppear?(self) } // 2.
@@ -101,11 +113,11 @@ struct ContentView: View {
     //
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView( showSettings: .constant(false), currentUser: .constant(InstaUser()))
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView( showSettings: .constant(false), currentUser: .constant(InstaUser()))
+//    }
+//}
 
 let sampleUser = InstaUser()
 

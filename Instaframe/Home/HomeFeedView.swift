@@ -18,10 +18,10 @@ struct HomeFeedView: View {
     init(username: String, currentuser: InstaUser){
         fetchRequestPosts = FetchRequest<InstaframePost>(entity: InstaframePost.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userID == %@", username))
         _currentUser = .init(initialValue: currentuser)
-        currentuser.profileDescription = "Engineering student at Concordia 🇨🇦\nFootball fan ⚽"
+        currentuser.profileDescription = "Multi Line\nProfile Description."
         currentuser.followedBy = 1000
         currentuser.following = 2343
-        currentuser.postCount = 2
+        currentuser.postCount = 0
     }
     
     var body: some View {
@@ -60,6 +60,7 @@ struct HomeFeedView: View {
                             }
                             .padding(.top, 20)
                             .padding(.bottom, 20)
+
                             
                             
                             HStack {
