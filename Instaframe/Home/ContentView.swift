@@ -17,10 +17,10 @@ struct ContentView: View {
     @FetchRequest(fetchRequest: InstaframePost.getPostFetchRequest())  var postList: FetchedResults<InstaframePost>
     @Binding var showSettings:Bool
     @Binding var currentUser:InstaUser
-    
+
     var body: some View {
         VStack {
-            
+
             HStack {
                 Text("Instaframe")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
@@ -36,7 +36,7 @@ struct ContentView: View {
                     .clipShape(Circle())
                     .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                
+
                 Button(action: {self.showSettings.toggle()}) {
                     Image(systemName: "gearshape")
                         .renderingMode(.original)
@@ -52,7 +52,7 @@ struct ContentView: View {
             .padding(.leading, 14)
             .padding(.top, 30)
 
-            
+
 //            ScrollView(.horizontal, showsIndicators: false) {
 //                HStack(spacing: 250) {
 //                    ForEach(postList) { item in
@@ -68,7 +68,7 @@ struct ContentView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
                             ForEach(postList, id: \.self) { item in
-                                CardView(username: item.userID ?? "", postGiven: item)
+                                CardView(username: item.userID ?? "", postGiven: item, currentUserGiven: currentUser).environment(\.managedObjectContext, managedObjectContext)
                                     .onAppear {
                                         print(index)
                                     }
@@ -76,31 +76,31 @@ struct ContentView: View {
                         }
                     }
 
-            
+
         }
         .onAppear { self.didAppear?(self) } // 2.
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // 2.
 
     }
-    
-    
-    
+
+
+
     func deleteItem(indexSet: IndexSet) {
         let source = indexSet.first!
         let listItem = postList[source]
         managedObjectContext.delete(listItem)
         saveItems()
     }
-    
+
     func addItem() {
         let newItem = InstaframePost(context: managedObjectContext)
         newItem.userID = "New Item \(postList.count+1)"
         //  print("There are \(postList[0].likeCount) records")
-        
+
         saveItems()
 
     }
-    
+
     func saveItems() {
         do {
             try managedObjectContext.save()
@@ -109,7 +109,7 @@ struct ContentView: View {
             print(error)
         }
     }
-    
+
     //
 }
 

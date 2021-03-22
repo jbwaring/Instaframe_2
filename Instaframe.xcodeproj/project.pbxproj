@@ -33,6 +33,7 @@
 		035B6AC425D1970800081C58 /* OnBoardAccountCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */; };
 		0378616B260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
 		0378616C260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
+		03787FA326091EC100EEE521 /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03787FA226091EC100EEE521 /* FollowView.swift */; };
 		038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27E026028B3F006B32C0 /* LoginTest.swift */; };
 		038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27FA2602944F006B32C0 /* SignUpViewTests.swift */; };
 		03A1D8C8260413ED008135F6 /* OnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */; };
@@ -85,6 +86,7 @@
 		035B6AC025D190D600081C58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardAccountCreate.swift; sourceTree = "<group>"; };
 		0378616A260461390091F730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		03787FA226091EC100EEE521 /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
 		038B27E026028B3F006B32C0 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		038B27FA2602944F006B32C0 /* SignUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTests.swift; sourceTree = "<group>"; };
 		03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewTests.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				03A3F90B25D0BC25005A4AEB /* Home.swift */,
 				03C1080825D078C600BF7F05 /* CardView.swift */,
 				03B764B52601A07200469BFA /* HomeFeedView.swift */,
+				03787FA226091EC100EEE521 /* FollowView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				03A3F90C25D0BC25005A4AEB /* Home.swift in Sources */,
 				030504FB25CF25580066F19D /* SceneDelegate.swift in Sources */,
 				0358D87025D99F5B001A3117 /* PostCreatorPostPreview.swift in Sources */,
+				03787FA326091EC100EEE521 /* FollowView.swift in Sources */,
 				03A3F90F25D0BF47005A4AEB /* SettingsView.swift in Sources */,
 				035B6AC425D1970800081C58 /* OnBoardAccountCreate.swift in Sources */,
 				0317F2E025D09001002A21F8 /* SignUpView.swift in Sources */,

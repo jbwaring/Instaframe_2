@@ -24,7 +24,7 @@ struct SettingsView: View {
           ])
       }
     var body: some View {
-        
+
 
             List {
                 HStack {
@@ -33,7 +33,7 @@ struct SettingsView: View {
                         Image(uiImage: UIImage(data: currentUser.avatar!)!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                 
+
                             .background(Color.white)
                             .frame(width: 120, height: 120)
                             .clipShape(Circle())
@@ -48,11 +48,11 @@ struct SettingsView: View {
                                 .clipShape(Circle())
                                 .shadow(color: Color(.black).opacity(0.2), radius: 10, x: 0, y: 4)
                                 .offset(x: 45, y: 58)
-                                
-                            
+
+
                         }
-                        
-                        
+
+
                     }
                     .frame(height: 150)
                     Text("@\(currentUser.userName!)")
@@ -60,7 +60,7 @@ struct SettingsView: View {
                         .padding(.leading)
                     }
                     //Text(currentUser.userName)
-                    
+
                 HStack{
                     Image(systemName: "envelope")
                         .foregroundColor(Color(.blue).opacity(0.43))
@@ -75,16 +75,16 @@ struct SettingsView: View {
                 }
                 }
                 .padding(.vertical, 20)
-                
-        
+
+
              .actionSheet(isPresented: $showCameraView, content: {
             self.actionSheetAvatar
-                
+
         })
         .sheet(isPresented: $viewModel.isPresentingImagePicker, onDismiss: {updateUser()}, content: {
             ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
         })
-                
+
         }
     }
 
@@ -96,14 +96,14 @@ struct SettingsView: View {
 //}
 
 extension SettingsView {
-    
+
  func updateUser() {
     self.showCameraView = false
     if (viewModel.selectedImage?.pngData() != nil){
     self.currentUser.avatar =  viewModel.selectedImage?.pngData()
     }
  }
-    
+
 }
 
 
@@ -143,7 +143,7 @@ completionHandler(nil)
     }
 }
 extension SettingsView {
-    
+
     final class ViewModel: ObservableObject {
         @Published var selectedImage: UIImage?
         @Published var isPresentingImagePicker = false
@@ -169,13 +169,13 @@ extension SettingsView {
             selectedImage = image
             isPresentingImagePicker = false
             usingCamera = false
-            
+
 
         }
 
 
     }
-    
-    
+
+
 
 }
