@@ -11,15 +11,20 @@ struct PostCreatorView: View {
  @Environment(\.managedObjectContext) var managedObjectContext
     @Binding var currentUser:InstaUser
     @State var selectedPostImage:UIImage?
+
     var body: some View {
         ZStack {
 //            Color.black
 //                .ignoresSafeArea(.all)
-            TabView {
+            TabView() {
                 
-                PostCreatorCamera( selectedImage: $selectedPostImage).environment(\.managedObjectContext, managedObjectContext)
+                PostCreatorCamera(selectedImage: $selectedPostImage).environment(\.managedObjectContext, managedObjectContext)
+                    .tabItem { Text("Select or Take a Picture") }
+                    .tag(0)
                 PostCreatorPostPreview(currentUser: $currentUser, selectedImage: $selectedPostImage).environment(\.managedObjectContext, managedObjectContext)
-            }.tabViewStyle(PageTabViewStyle())
+                    .tabItem { Text("Review Post") }
+                tag(1)
+            }
         }
     }
 }

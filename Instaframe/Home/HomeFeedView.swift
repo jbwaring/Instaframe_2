@@ -181,9 +181,9 @@ struct HomeFeedView: View {
         })
         .edgesIgnoringSafeArea(.top)
         .sheet(isPresented: $showFollowView) {
-            if(fetchRequestUser.wrappedValue.first != nil){
-                FollowedByView(currentUser: currentUser, shownUser: fetchRequestUser.wrappedValue.first!).environment(\.managedObjectContext, managedObjectContext)
-            }
+
+            FollowedByView(currentUserName: currentUser.userName!, shownUser: fetchRequestUser.wrappedValue.first!).environment(\.managedObjectContext, managedObjectContext)
+
         }
         .onAppear(perform: {
             isUserInitialyFollowing()
@@ -219,6 +219,7 @@ extension HomeFeedView {
     }
 
     func isUserInitialyFollowing(){
+        print("User is initialy followed.")
         let followingArray = currentUser.followingUsers?.components(separatedBy: "\n")
         if let index = followingArray?.firstIndex(where: { $0 == currentUser.userName ?? "" }) {
             //Current User has liked this post.
