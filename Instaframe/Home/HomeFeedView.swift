@@ -18,6 +18,7 @@ struct HomeFeedView: View {
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var showFollowView:Bool = false
     @State var isCurrentUser:Bool
+    @State var followStr = "Follow"
     init(username: String, currentuser: InstaUser){
         fetchRequestPosts = FetchRequest<InstaframePost>(entity: InstaframePost.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userID == %@", username))
         fetchRequestUser = FetchRequest<InstaUser>(entity: InstaUser.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userName == %@", username))
@@ -99,7 +100,7 @@ struct HomeFeedView: View {
                             } else {
                                 HStack {
                                     Button(action:{self.showFollowView.toggle()}, label: {
-                                        Text("Followers")
+                                        Text("Followers & Following")
                                             .padding()
                                             .background(Color.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
@@ -108,8 +109,8 @@ struct HomeFeedView: View {
                                             .shadow(color: Color(.black).opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: -5)
 
                                     })
-                                    Button(action:{self.showFollowView.toggle()}, label: {
-                                        Text("Follow")
+                                    Button(action:{followUser()}, label: {
+                                        Text(followStr)
                                             .padding()
                                             .background(Color.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
@@ -180,10 +181,51 @@ struct HomeFeedView: View {
         })
         .edgesIgnoringSafeArea(.top)
         .sheet(isPresented: $showFollowView) {
-            FollowedByView(currentUser: currentUser).environment(\.managedObjectContext, managedObjectContext)
+            if(fetchRequestUser.wrappedValue.first != nil){
+                FollowedByView(currentUser: currentUser, shownUser: fetchRequestUser.wrappedValue.first!).environment(\.managedObjectContext, managedObjectContext)
+            }
+        }
+        .onAppear(perform: {
+            isUserInitialyFollowing()
+        })
+    }
+
+}
+extension HomeFeedView {
+    func  followUser(){
+        var followingArray = currentUser.followingUsers?.components(separatedBy: "\n")
+        if let index = followingArray?.firstIndex(where: { $0 == fetchRequestUser.wrappedValue.first?.userName ?? "" }) {
+            //We do follow them - Un-follow
+            followingArray?.remove(at: index)
+            self.followStr = "Follow"
+        }else { //We do not follow them.
+            followingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
+            self.followStr = "Un-Follow"
+        }
+        currentUser.followingUsers = followingArray?.joined(separator: "\n")
+
+        saveItems()
+
+    }
+
+
+    func saveItems() {
+        do {
+            try managedObjectContext.save()
+            print("saved Item")
+        } catch {
+            print(error)
         }
     }
 
+    func isUserInitialyFollowing(){
+        let followingArray = currentUser.followingUsers?.components(separatedBy: "\n")
+        if let index = followingArray?.firstIndex(where: { $0 == currentUser.userName ?? "" }) {
+            //Current User has liked this post.
+            self.followStr = "Un-Follow"
+        }
+
+    }
 }
 
 struct PostFeedView : View {

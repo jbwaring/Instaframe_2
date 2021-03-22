@@ -11,17 +11,23 @@ struct FollowedByView: View {
     @FetchRequest(fetchRequest: InstaUser.fetchAllUsers())  var userList: FetchedResults<InstaUser>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var followedUser: [InstaUser]
+    @State var followingUser: [InstaUser]
     @State var currentUser:InstaUser
-
-    init(currentUser: InstaUser) {
+    @State var shownUser:InstaUser
+    @State var canEdit:Bool = false
+    init(currentUser: InstaUser, shownUser: InstaUser) {
         _currentUser = .init(initialValue: currentUser)
+        _shownUser  = .init(initialValue: shownUser)
         _followedUser = .init(initialValue: [currentUser])
+        _followingUser = .init(initialValue: [currentUser])
+
     }
     var body: some View {
         NavigationView {
 
             Form{
-
+                Text(canEdit ? "Tip: You remove followers or followings by swiping right to left on the user you would like to remove." : "Tip: To edit this, connect to the account \(currentUser.userName ?? "").")
+                    .font(.subheadline)
                 Section(header: Text("Followers")){
                 ForEach(followedUser, id: \.self) { user in
                     HStack{
@@ -36,14 +42,14 @@ struct FollowedByView: View {
                     .frame(height: 70)
                     .buttonStyle(PlainButtonStyle())
                     //Deleting task
-                }
+                }.onDelete(perform: removeFollowedBy)
                 }
 
 
 
 
                 Section(header: Text("Following")){
-                    ForEach(followedUser, id: \.self) { user in
+                    ForEach(followingUser, id: \.self) { user in
                         HStack{
                             Image(uiImage: UIImage(data: user.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                                 .resizable()
@@ -56,7 +62,7 @@ struct FollowedByView: View {
                         .frame(height: 70)
                         .buttonStyle(PlainButtonStyle())
                         //Deleting task
-                    }.onDelete(perform: removeFollower)
+                    }.onDelete(perform: removeFollowing)
 
                 }
 
@@ -65,7 +71,11 @@ struct FollowedByView: View {
             }.navigationBarTitle("Follow.")
         }
         .onAppear(perform: {
-            findFollowList()
+            findFollowedByList()
+            findFollowingList()
+//            if(currentUser.){
+//                self.canEdit = true
+//            }
         })
     }
 
@@ -74,7 +84,7 @@ struct FollowedByView: View {
 
 extension FollowedByView {
 
-    func removeFollower(at offsets: IndexSet) {
+    func removeFollowedBy(at offsets: IndexSet) {
 
         var userNameToRemove = ""
         for index in offsets {
@@ -89,8 +99,25 @@ extension FollowedByView {
         saveItems()
 
     }
+    func removeFollowing(at offsets: IndexSet) {
 
-    func findFollowList() {
+        var userNameToRemove = ""
+        for index in offsets {
+            userNameToRemove = followingUser[index].userName ?? ""
+            followingUser.remove(at: index)
+        }
+        var postLikeUsers = currentUser.followingUsers?.components(separatedBy: "\n")
+        if let index = postLikeUsers?.firstIndex(where: { $0 == userNameToRemove }) {
+            postLikeUsers?.remove(at: index)
+        }
+        currentUser.followingUsers = postLikeUsers?.joined(separator: "\n")
+        saveItems()
+
+    }
+
+
+    func findFollowedByList() {
+        print("Finding List of Followers and Following.")
         var followlist = currentUser.followedByUsers?.components(separatedBy: "\n")
         followedUser.removeAll()
         for findName in followlist! {
@@ -102,7 +129,19 @@ extension FollowedByView {
             }
         }
     }
-
+    func findFollowingList() {
+        print("Finding List of Followers and Following.")
+        var followlist = currentUser.followingUsers?.components(separatedBy: "\n")
+        followingUser.removeAll()
+        for findName in followlist! {
+            for user in userList {
+                //find corresponding user:
+                if(user.userName == findName){
+                    followingUser.append(user)
+                }
+            }
+        }
+    }
 
     func saveItems() {
          do {
