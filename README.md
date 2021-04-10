@@ -7,11 +7,20 @@ Group A12 Team Members:
  * Mohsen Lhaf - <i>mohsen220</i><br />
  * Jean-Baptiste Waring - <i>jbwaring</i>
 
-Core Features:
+# Feature Set
+
+Login and User Accounts:
+>Create Account<br />
 >Login<br />
+>Forget Password<br />
+
+Post, Profile and Pictures:
 >Post a Picture<br />
 >Access your profile.<br />
 >Like a Post<br />
+>Follow/Unfollow a user.<br />
+>See who follows you and remove their follow.<br />
+>See someone else's profile with limited access.<br />
 
 Framework Used:
 >SwiftUI<br />
@@ -25,6 +34,7 @@ Used Pods:
 
 Used Swift Packages:
 >lottie-ios<br />
+>ViewInspector<br />
 
 
 
