@@ -15,16 +15,19 @@ struct HomeFeedView: View {
     @State var currentUser:InstaUser
     @State var verticalOffset:CGFloat = 0.0
     @State var show:Bool = false
-    @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
+    @State var time = Timer.publish(every: 0.01, on: .current, in: .tracking).autoconnect()
     @State var showFollowView:Bool = false
     @State var isCurrentUser:Bool
+    @State var descriptionStateString:String
     @State var followStr = "Follow"
     init(username: String, currentuser: InstaUser){
         fetchRequestPosts = FetchRequest<InstaframePost>(entity: InstaframePost.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userID == %@", username))
         fetchRequestUser = FetchRequest<InstaUser>(entity: InstaUser.entity(), sortDescriptors: [], predicate:NSPredicate(format: "userName == %@", username))
 
         _currentUser = .init(initialValue: currentuser)
-        currentuser.profileDescription = "Multi Line\nProfile Description."
+
+        _descriptionStateString = .init(initialValue: currentuser.profileDescription ?? "")
+
         if ( currentuser.userName == username){
             _isCurrentUser = .init(initialValue: true)
         }else {
@@ -67,7 +70,7 @@ struct HomeFeedView: View {
                                     Text("Following")
                                 }
                             }
-                            .padding(.top, 20)
+                            .padding(.top, 60)
                             .padding(.bottom, 20)
 
 
@@ -76,15 +79,11 @@ struct HomeFeedView: View {
                                 VStack (alignment : .leading){
                                     Text(fetchRequestUser.wrappedValue.first?.userName ?? "")
                                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    Text(fetchRequestUser.wrappedValue.first?.profileDescription ?? "")
-                                        .font(.subheadline)
-
-
                                 }
-                                .padding()
+
 
                                 Spacer()
-                            }.padding(.leading,20)
+                         }.padding(.leading, 20)
                             //
                             if isCurrentUser {
                                 Button(action:{self.showFollowView.toggle()}, label: {
@@ -193,18 +192,66 @@ struct HomeFeedView: View {
 }
 extension HomeFeedView {
     func  followUser(){
-        var followingArray = currentUser.followingUsers?.components(separatedBy: "\n")
-        if let index = followingArray?.firstIndex(where: { $0 == fetchRequestUser.wrappedValue.first?.userName ?? "" }) {
-            //We do follow them - Un-follow
-            followingArray?.remove(at: index)
-            self.followStr = "Follow"
-        }else { //We do not follow them.
-            followingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
-            self.followStr = "Un-Follow"
-        }
-        currentUser.followingUsers = followingArray?.joined(separator: "\n")
+        var shownUserFollowedByArray = fetchRequestUser.wrappedValue.first?.followedByUsers?.components(separatedBy: "\n")
 
+        var currentUserFollowingArray = currentUser.followingUsers?.components(separatedBy: "\n")
+
+        if(shownUserFollowedByArray == nil){
+            shownUserFollowedByArray = []
+        }
+        if(currentUserFollowingArray == nil){
+            currentUserFollowingArray = []
+        }
+
+
+        if (shownUserFollowedByArray == nil){// we don't follow them let us follow them
+
+            shownUserFollowedByArray?.append(currentUser.userName ?? "")
+            currentUserFollowingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
+
+            // go back to string
+
+            currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
+            fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
+            print(".join Result: \(String(describing: shownUserFollowedByArray?.joined(separator: "\n")))")
+            print("result of currentUser.userName ??  : \(currentUser.userName ?? "")")
+            saveItems()
+            self.followStr = "Un-Follow"
+            print("\(String(describing: currentUser.userName)) follows ==nil  \(String(describing: fetchRequestUser.wrappedValue.first?.userName))\nfollowedbyUser = \(fetchRequestUser.wrappedValue.first?.followedByUsers) AND followingUsers = \( currentUser.followingUsers)")
+            return
+        }
+
+        if let index = currentUserFollowingArray?.firstIndex(where: { $0 == fetchRequestUser.wrappedValue.first?.userName ?? "" }) {
+            // we follow them let's unfollow
+
+            currentUserFollowingArray?.remove(at: index)
+            if let index = shownUserFollowedByArray?.firstIndex(where: { $0 == currentUser.userName ?? "" }) {
+                shownUserFollowedByArray?.remove(at: index)
+            }
+
+            //back to string
+            currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
+            fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
+            saveItems()
+            self.followStr = "Follow"
+            print("\(String(describing: currentUser.userName)) UNfollows \(String(describing: fetchRequestUser.wrappedValue.first?.userName))")
+            return
+
+        }
+        //we do not follow them:
+        shownUserFollowedByArray?.append(currentUser.userName ?? "")
+        currentUserFollowingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
+        // go back to string
+
+        currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
+        fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
         saveItems()
+        self.followStr = "Un-Follow"
+        print("\(String(describing: currentUser.userName)) follows \(String(describing: fetchRequestUser.wrappedValue.first?.userName))")
+        return
+
+
+
 
     }
 
@@ -219,10 +266,11 @@ extension HomeFeedView {
     }
 
     func isUserInitialyFollowing(){
-        print("User is initialy followed.")
-        let followingArray = currentUser.followingUsers?.components(separatedBy: "\n")
+
+        var followingArray = fetchRequestUser.wrappedValue.first?.followedByUsers?.components(separatedBy: "\n")
+        if (followingArray == nil ) {followingArray = []}
         if let index = followingArray?.firstIndex(where: { $0 == currentUser.userName ?? "" }) {
-            //Current User has liked this post.
+            print("User is initialy followed.")
             self.followStr = "Un-Follow"
         }
 

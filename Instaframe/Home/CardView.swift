@@ -36,7 +36,7 @@ struct CardView: View {
                 .resizable()
                 .rotationEffect(.degrees(90))
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 240, height: 310, alignment: .center)
+                .frame(width: 240, height: 360, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             VStack {
 
@@ -133,7 +133,7 @@ struct CardView: View {
 
 
         }
-        .frame(width: 240, height: 600)
+        .frame(width: 240, height: 500)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 2)
