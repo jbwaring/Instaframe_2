@@ -36,8 +36,12 @@ Used Swift Packages:
 >lottie-ios<br />
 >ViewInspector<br />
 
-
-
+# Code Quality Analysis
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=security_rating)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
 
 
 Project Submitted as partial fulfilment of the requirements of SOEN 341. <br /><br />
