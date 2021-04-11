@@ -24,10 +24,7 @@ struct LoginView: View {
     @State var showingResetPassword:Bool = false
     
     func Login(){
-        //ADD HIDE KEYBOARD!
         self.isFocused = true
-       // self.showAlert = true
-        
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             self.isLoading = true
@@ -55,7 +52,7 @@ struct LoginView: View {
         ZStack {
             
             ZStack {
-                 
+                
                 Image("Water35")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -88,7 +85,7 @@ struct LoginView: View {
                                         .shadow(color: Color(.black).opacity(0.3), radius: 10, x: 0, y: 4)
                                     
                                 }
-
+                                
                             }
                             
                         }
@@ -128,12 +125,12 @@ struct LoginView: View {
                 
                 $0.sheet(isPresented: $showingSignUp, content: {
                     SignUpView()
-              
-                  })
+                    
+                })
                 $0.sheet(isPresented: $showingResetPassword, content: {
                     ForgotPassword()
-              
-                  })
+                    
+                })
             }
             .statusBar(hidden: true)
             .onAppear { self.didAppear?(self) } // 2.
@@ -147,7 +144,7 @@ struct LoginView: View {
         
         
         
-
+        
         
         
     }
@@ -218,9 +215,6 @@ struct LoginWindowBackgroundView: View {
             
             
             VStack(spacing: 20) {
-//                LoginCarouselView(reversed: .constant(true))
-//                LoginCarouselView(reversed: .constant(false))
-//                LoginCarouselView(reversed: .constant(true))
             }
             Text("Instafame")
                 .foregroundColor(.white)
@@ -233,10 +227,10 @@ struct LoginWindowBackgroundView: View {
 }
 
 internal final class Inspection<LoginView> where LoginView: View {
-
+    
     let notice = PassthroughSubject<UInt, Never>()
     var callbacks = [UInt: (LoginView) -> Void]()
-
+    
     func visit(_ view: LoginView, _ line: UInt) {
         if let callback = callbacks.removeValue(forKey: line) {
             callback(view)

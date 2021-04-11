@@ -13,30 +13,24 @@ struct PostCreatorCamera: View {
 
 
     var body: some View {
-       
-            
-            ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
-                .onChange(of: viewModel.didSelect, perform: { didSelect in
-                    if(didSelect==true){
-                        self.selectedImage = viewModel.selectedImage
-                        print("image arrive in .onChange()")
-                    }
-                    viewModel.didSelect = false
-                })
-                .onAppear(perform: {
-                    viewModel.choosePhoto()
-                })
-                
-                
+
+
+        ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
+            .onChange(of: viewModel.didSelect, perform: { didSelect in
+                if(didSelect==true){
+                    self.selectedImage = viewModel.selectedImage
+                    print("image arrive in .onChange()")
+                }
+                viewModel.didSelect = false
+            })
+            .onAppear(perform: {
+                viewModel.choosePhoto()
+            })
+
+
         
     }
 }
-
-//struct PostCreatorCamera_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PostCreatorCamera(selectedImage: .constant(UIImage()))
-//    }
-//}
 extension PostCreatorCamera {
     func testfunc() {
         
@@ -46,7 +40,6 @@ extension PostCreatorCamera {
         @Published var isPresentingImagePicker = false
         @Published var didSelect = false
         @Published var usingCamera = false
-      //  private(set) var sourceType: ImagePicker.SourceType = .camera
         private(set) var sourceType: ImagePicker.SourceType = .photoLibrary
 
 

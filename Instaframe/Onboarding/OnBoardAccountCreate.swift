@@ -35,10 +35,6 @@ struct OnBoardAccountCreate: View {
     }
     var body: some View {
         ZStack {
-//            Image("Water35")
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .ignoresSafeArea(.all)
             VStack() {
                 Text("Instaframe")
                     .font(.system(size: 40, weight: .bold, design: .rounded))
@@ -115,7 +111,7 @@ struct OnBoardAccountCreate: View {
                 $0.alert(isPresented: $showAlert, content: {
                     Alert(title: Text("Account Creation Failed."), message: Text(errorDescription), dismissButton: .default(Text("OK")))
                 })
-            
+                
                 $0.sheet(isPresented: $viewModel.isPresentingImagePicker, onDismiss: {updateProfilePic()}, content: {
                     ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
                 })
@@ -143,7 +139,7 @@ extension OnBoardAccountCreate {
         self.selectedProfilePic = viewModel.selectedImage
         self.choosePicString = "You can still modify the picture before proceeding."
     }
- 
+    
     func checkUserUnique() -> Bool {
         for user in userList {
             if(user.userName == username){

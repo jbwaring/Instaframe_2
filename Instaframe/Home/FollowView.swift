@@ -21,11 +21,11 @@ struct FollowedByView: View {
         _followingUser = .init(initialValue: [shownUser])
         currentUSRName = currentUserName
         print("showing \(String(describing: shownUser.userName)) to \(currentUserName).")
-
+        
     }
     var body: some View {
         NavigationView {
-
+            
             Form{
                 Text(canEdit ? "Tip : You remove followers or followings by swiping right to left on the user you would like to remove." : "Tip : To edit this, connect to the account \(shownUser.userName ?? "").")
                     .font(.subheadline)
@@ -49,10 +49,10 @@ struct FollowedByView: View {
                         }
                     })
                 }
-
-
-
-
+                
+                
+                
+                
                 Section(header: Text("Following")){
                     ForEach(followingUser, id: \.self) { user in
                         HStack{
@@ -68,17 +68,17 @@ struct FollowedByView: View {
                         .buttonStyle(PlainButtonStyle())
                         //Deleting task
                     }.onDelete(perform: {index in
-
+                        
                         if(canEdit){
                             removeFollowing(at: index)
-
+                            
                         }
                     })
-
+                    
                 }
-
-
-
+                
+                
+                
             }.navigationBarTitle("Follow.")
         }
         .onAppear(perform: {
@@ -92,14 +92,14 @@ struct FollowedByView: View {
             }
         })
     }
-
+    
 }
 
 
 extension FollowedByView {
-
+    
     func removeFollowedBy(at offsets: IndexSet) {
-
+        
         var userNameToRemove = ""
         for index in offsets {
             userNameToRemove = followedUser[index].userName ?? ""
@@ -111,10 +111,10 @@ extension FollowedByView {
         }
         shownUser.followedByUsers = postLikeUsers?.joined(separator: "\n")
         saveItems()
-
+        
     }
     func removeFollowing(at offsets: IndexSet) {
-
+        
         var userNameToRemove = ""
         for index in offsets {
             userNameToRemove = followingUser[index].userName ?? ""
@@ -126,13 +126,13 @@ extension FollowedByView {
         }
         shownUser.followingUsers = postLikeUsers?.joined(separator: "\n")
         saveItems()
-
+        
     }
-
-
+    
+    
     func findFollowedByList() {
         print("Finding List of Followers and Following.")
-        var followlist = shownUser.followedByUsers?.components(separatedBy: "\n")
+        let followlist = shownUser.followedByUsers?.components(separatedBy: "\n")
         followedUser.removeAll()
         if (followlist == nil){return}
         for findName in followlist! {
@@ -146,7 +146,7 @@ extension FollowedByView {
     }
     func findFollowingList() {
         print("Finding List of Followers and Following.")
-        var followlist = shownUser.followingUsers?.components(separatedBy: "\n")
+        let followlist = shownUser.followingUsers?.components(separatedBy: "\n")
         followingUser.removeAll()
         if (followlist == nil){return}
         for findName in followlist! {
@@ -158,7 +158,7 @@ extension FollowedByView {
             }
         }
     }
-
+    
     func saveItems() {
         do {
             try managedObjectContext.save()

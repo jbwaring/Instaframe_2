@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct PostCreatorView: View {
- @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Binding var currentUser:InstaUser
     @State var selectedPostImage:UIImage?
-
+    
     var body: some View {
         ZStack {
-//            Color.black
-//                .ignoresSafeArea(.all)
             TabView() {
                 
                 PostCreatorCamera(selectedImage: $selectedPostImage).environment(\.managedObjectContext, managedObjectContext)

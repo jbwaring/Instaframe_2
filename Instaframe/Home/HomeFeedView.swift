@@ -47,23 +47,6 @@ struct HomeFeedView: View {
     var body: some View {
         NavigationView{
             Form {
-//                VStack {
-//                    HStack (spacing: 20){
-//                        Image(uiImage: UIImage(data: fetchRequestUser.wrappedValue.first?.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
-//                            .resizable()
-//
-//                            .aspectRatio(contentMode: .fill)
-//                            .clipShape(Circle())
-//                            .frame(width: 100, height: 75, alignment: .leading)
-//
-//
-//
-//
-//                    }
-//
-//                }
-//                .padding()
-
                 HStack {
                     Image(uiImage: UIImage(data: fetchRequestUser.wrappedValue.first?.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                                                 .resizable()
@@ -118,18 +101,6 @@ struct HomeFeedView: View {
                 }
 
             }.navigationTitle(fetchRequestUser.wrappedValue.first?.userName ?? "")
-//            .navigationBarItems(leading:  HStack{
-//                Image(uiImage: UIImage(data: fetchRequestUser.wrappedValue.first?.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
-//                    .resizable()
-//
-//                    .aspectRatio(contentMode: .fill)
-//                    .clipShape(Circle())
-//                    .frame(width: 50, height: 50, alignment: .leading)
-//
-//
-//
-//
-//            }, trailing: Text(fetchRequestUser.wrappedValue.first?.userName ?? ""))
             .onAppear(perform: isUserInitialyFollowing)
         }
 
@@ -149,15 +120,6 @@ struct PostFooterView : View{
                 Text("\(post.likeCount) like")
                     .font(.subheadline)
             }
-
-//            Button(action: {
-//                    self.lovedCard.toggle()
-//
-//            }) {
-//                Image(systemName: lovedCard ? "heart.fill" : "heart")
-//                    .font(.system(size: 21))
-//                    .foregroundColor(lovedCard ? Color.red : Color.black)
-//            }
         }
     }
 }
@@ -183,9 +145,7 @@ extension HomeFeedView {
 
             shownUserFollowedByArray?.append(currentUser.userName ?? "")
             currentUserFollowingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
-
             // go back to string
-
             currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
             fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
             print(".join Result: \(String(describing: shownUserFollowedByArray?.joined(separator: "\n")))")
@@ -198,12 +158,10 @@ extension HomeFeedView {
 
         if let index = currentUserFollowingArray?.firstIndex(where: { $0 == fetchRequestUser.wrappedValue.first?.userName ?? "" }) {
             // we follow them let's unfollow
-
             currentUserFollowingArray?.remove(at: index)
             if let index = shownUserFollowedByArray?.firstIndex(where: { $0 == currentUser.userName ?? "" }) {
                 shownUserFollowedByArray?.remove(at: index)
             }
-
             //back to string
             currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
             fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
@@ -217,7 +175,6 @@ extension HomeFeedView {
         shownUserFollowedByArray?.append(currentUser.userName ?? "")
         currentUserFollowingArray?.append(fetchRequestUser.wrappedValue.first?.userName ?? "")
         // go back to string
-
         currentUser.followingUsers = currentUserFollowingArray!.joined(separator: "\n")
         fetchRequestUser.wrappedValue.first?.followedByUsers = shownUserFollowedByArray?.joined(separator: "\n")
         saveItems()
@@ -248,26 +205,6 @@ extension HomeFeedView {
             print("User is initialy followed.")
             self.followStr = "Un-Follow"
         }
-
-    }
-}
-
-struct PostFeedView : View {
-
-    var post : InstaframePost
-
-    var body: some View{
-
-        VStack{
-
-            Image(uiImage: UIImage(data: post.image ?? Data())!)
-                .resizable()
-                .rotationEffect(.degrees(90))
-                .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: 200)
-
-
-        }//.frame(minWidth: UIScreen.main.bounds.width+50, maxHeight: 100)
 
     }
 }

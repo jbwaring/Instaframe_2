@@ -11,8 +11,8 @@ import CloudKit
 import Combine
 
 struct ContentView: View {
-    internal var didAppear: ((Self) -> Void)? // 1.
-    internal let inspection = Inspection<Self>() // 1.
+    internal var didAppear: ((Self) -> Void)?
+    internal let inspection = Inspection<Self>()
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: InstaframePost.getPostFetchRequest())  var postList: FetchedResults<InstaframePost>
     @Binding var showSettings:Bool
@@ -25,8 +25,6 @@ struct ContentView: View {
                 Text("Instaframe")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                 Spacer()
-                //Image("sampleimage")
-                //Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                 Image(uiImage: UIImage(data: currentUser.avatar ?? Data()) ?? UIImage(imageLiteralResourceName: "sampleimage"))
                     .resizable()
 
@@ -51,35 +49,18 @@ struct ContentView: View {
             .padding(.horizontal)
             .padding(.leading, 14)
             .padding(.top, 30)
-
-
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                HStack(spacing: 250) {
-//                    ForEach(postList) { item in
-//                        GeometryReader { geometry in
-//                            CardView(username: item.userID ?? "", postGiven: item)
-//                                .padding(.horizontal, 30)
-//
-//                        }
-//                    }
-//                }
-//            }
-
             ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(postList, id: \.self) { item in
-                                CardView(username: item.userID ?? "", postGiven: item, currentUserGiven: currentUser).environment(\.managedObjectContext, managedObjectContext)
-                                    .onAppear {
-                                        print(index)
-                                    }
-                            }
-                        }
+                LazyHStack {
+                    ForEach(postList, id: \.self) { item in
+                        CardView(username: item.userID ?? "", postGiven: item, currentUserGiven: currentUser).environment(\.managedObjectContext, managedObjectContext)
                     }
+                }
+            }
 
 
         }
-        .onAppear { self.didAppear?(self) } // 2.
-        .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // 2.
+        .onAppear { self.didAppear?(self) }
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
 
     }
 
@@ -95,8 +76,6 @@ struct ContentView: View {
     func addItem() {
         let newItem = InstaframePost(context: managedObjectContext)
         newItem.userID = "New Item \(postList.count+1)"
-        //  print("There are \(postList[0].likeCount) records")
-
         saveItems()
 
     }
@@ -109,15 +88,8 @@ struct ContentView: View {
             print(error)
         }
     }
-
-    //
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView( showSettings: .constant(false), currentUser: .constant(InstaUser()))
-//    }
-//}
 
 let sampleUser = InstaUser()
 

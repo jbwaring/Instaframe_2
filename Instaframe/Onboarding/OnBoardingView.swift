@@ -12,21 +12,21 @@ struct OnBoardingView: View {
     @Binding var currentUser:InstaUser
     @State var newUser:Bool
     var body: some View {
-  
-            ZStack {
-                Image("Water35")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea(.all)
-                TabView{
-                   
+
+        ZStack {
+            Image("Water35")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea(.all)
+            TabView{
+
                 WelcomeView()
-                    
+
                 OnBoardAccountCreate().environment(\.managedObjectContext, managedObjectContext)
-                }.tabViewStyle(PageTabViewStyle())
-            }
+            }.tabViewStyle(PageTabViewStyle())
+        }
         
-       
+
 
         
         
@@ -34,8 +34,3 @@ struct OnBoardingView: View {
     
 }
 
-//struct OnBoardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnBoardingView(currentUser: .constant(InstaUser()), newUser: true)
-//    }
-//}

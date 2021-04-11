@@ -23,11 +23,11 @@ struct ForgotPassword: View {
                 .multilineTextAlignment(.center)
                 .padding(.trailing, 10)
                 .padding(.leading, 10)
-
+            
             Spacer()
             Field(fieldStr: $email, imgSystemName: "envelope", fieldNameStr: "Email")
                 .padding(.bottom)
-
+            
             Text(errorString)
                 .foregroundColor(.red)
                 .lineLimit(3)
@@ -86,10 +86,10 @@ extension ForgotPassword{
         
     }
     func validateEmail(enteredEmail:String) -> Bool {
-
+        
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: enteredEmail)
-
+        
     }
 }

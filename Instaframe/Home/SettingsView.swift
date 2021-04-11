@@ -11,7 +11,7 @@ struct SettingsView: View {
     @State var showCameraView:Bool = false
     @StateObject var viewModel:ViewModel = ViewModel()
     @Binding var currentUser:InstaUser
-
+    
     var actionSheetAvatar: ActionSheet {
         ActionSheet(title: Text("Change Avatar"), message: nil, buttons: [
             .default(Text("Choose from Camera Roll."), action: {
@@ -24,17 +24,16 @@ struct SettingsView: View {
         ])
     }
     var body: some View {
-
+        
         NavigationView {
-
+            
             Form {
                 HStack {
                     ZStack {
-                        //                        Image("sampleimage")
                         Image(uiImage: UIImage(data: currentUser.avatar!)!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-
+                            
                             .background(Color.white)
                             .frame(width: 120, height: 120)
                             .clipShape(Circle())
@@ -49,25 +48,18 @@ struct SettingsView: View {
                                 .clipShape(Circle())
                                 .shadow(color: Color(.black).opacity(0.2), radius: 10, x: 0, y: 4)
                                 .offset(x: 45, y: 58)
-
-
+                            
+                            
                         }
-
-
+                        
+                        
                     }
                     .frame(height: 150)
                     Text("@\(currentUser.userName!)")
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .padding(.leading)
                 }
-                //Text(currentUser.userName)
-
-                //                HStack{
-                //                    Image(systemName: "envelope")
-                //                        .foregroundColor(Color(.blue).opacity(0.43))
-                //                        .frame(width: 30, height: 80, alignment: .center)
-                //                    Text("Change Email")
-                //                }
+                
                 NavigationLink(destination: ForgotPassword()){
                     HStack{
                         Image(systemName: "key")
@@ -75,40 +67,33 @@ struct SettingsView: View {
                             .frame(width: 30, height: 80, alignment: .center)
                         Text("Change Password")
                     }
-
+                    
                 }
-
+                
             }
             .navigationBarTitle("Settings")
-
+            
             .actionSheet(isPresented: $showCameraView, content: {
                 self.actionSheetAvatar
-
+                
             })
             .sheet(isPresented: $viewModel.isPresentingImagePicker, onDismiss: {updateUser()}, content: {
                 ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
             })
-
+            
         }
     }
 }
 
-
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsView( currentUser: .constant(InstaUser()))
-//    }
-//}
-
 extension SettingsView {
-
+    
     func updateUser() {
         self.showCameraView = false
         if (viewModel.selectedImage?.pngData() != nil){
             self.currentUser.avatar =  viewModel.selectedImage?.pngData()
         }
     }
-
+    
 }
 
 
@@ -148,39 +133,39 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 }
 extension SettingsView {
-
+    
     final class ViewModel: ObservableObject {
         @Published var selectedImage: UIImage?
         @Published var isPresentingImagePicker = false
         @Published var usingCamera = false
         private(set) var sourceType: ImagePicker.SourceType = .camera
-
-
-
-
+        
+        
+        
+        
         func choosePhoto() {
-
+            
             sourceType = .photoLibrary
             isPresentingImagePicker = true
         }
-
+        
         func takePhoto() {
             sourceType = .camera
             usingCamera = true
             isPresentingImagePicker = true
         }
-
+        
         func didSelectImage(_ image: UIImage?) {
             selectedImage = image
             isPresentingImagePicker = false
             usingCamera = false
-
-
+            
+            
         }
-
-
+        
+        
     }
-
-
-
+    
+    
+    
 }
