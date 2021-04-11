@@ -75,22 +75,6 @@ struct CardView: View {
 
                     }
 
-
-//                    if !preview {
-//                        Button(action: {
-//                            // Add Message View
-//                        }) {
-//                            Image(systemName: "message")
-//                                .font(.system(size: 21))
-//                                .foregroundColor(.black)
-//
-//                        }
-//                    } else {
-//                        Image(systemName: "message")
-//                            .font(.system(size: 21))
-//                            .foregroundColor(Color.black.opacity(0.5))
-//
-//                    }
                     if(post.likeCount>1){
                         Text("\(post.likeCount) likes")
                             .font(.subheadline)
@@ -112,27 +96,6 @@ struct CardView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -3)
                     }
-//                    if !preview {
-//                        Button(action: {
-//                            shareImage.removeAll()
-//                            shareImage.append(UIImage())
-//
-//                            shareSheet()
-//                        }) {
-//                            Image(systemName: "square.and.arrow.up")
-//                                .font(.system(size: 21))
-//                                .foregroundColor(.black)
-//                        }
-//                    } else {
-//                        Image(systemName: "square.and.arrow.up")
-//                            .font(.system(size: 21))
-//                            .foregroundColor(Color.black.opacity(0.5))
-//                        }
-////                    .sheet(isPresented: $showingSheet, content: {
-////                        ShareSheet(items: shareItems)
-////                    })
-
-
 
                 }
                 .padding(.horizontal)
