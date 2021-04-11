@@ -27,7 +27,7 @@ struct FollowedByView: View {
         NavigationView {
 
             Form{
-                Text(canEdit ? "Tip: You remove followers or followings by swiping right to left on the user you would like to remove." : "Tip: To edit this, connect to the account \(shownUser.userName ?? "").")
+                Text(canEdit ? "Tip : You remove followers or followings by swiping right to left on the user you would like to remove." : "Tip : To edit this, connect to the account \(shownUser.userName ?? "").")
                     .font(.subheadline)
                 Section(header: Text("Followers")){
                     ForEach(followedUser, id: \.self) { user in

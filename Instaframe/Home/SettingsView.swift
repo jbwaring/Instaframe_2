@@ -13,23 +13,24 @@ struct SettingsView: View {
     @Binding var currentUser:InstaUser
 
     var actionSheetAvatar: ActionSheet {
-          ActionSheet(title: Text("Change Avatar"), message: nil, buttons: [
-              .default(Text("Choose from Camera Roll."), action: {
+        ActionSheet(title: Text("Change Avatar"), message: nil, buttons: [
+            .default(Text("Choose from Camera Roll."), action: {
                 viewModel.choosePhoto()
-              }),
-              .default(Text("Take a picture."), action: {
+            }),
+            .default(Text("Take a picture."), action: {
                 viewModel.takePhoto()
-              }),
-              .cancel()
-          ])
-      }
+            }),
+            .cancel()
+        ])
+    }
     var body: some View {
 
+        NavigationView {
 
-            List {
+            Form {
                 HStack {
                     ZStack {
-//                        Image("sampleimage")
+                        //                        Image("sampleimage")
                         Image(uiImage: UIImage(data: currentUser.avatar!)!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -58,35 +59,39 @@ struct SettingsView: View {
                     Text("@\(currentUser.userName!)")
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .padding(.leading)
+                }
+                //Text(currentUser.userName)
+
+                //                HStack{
+                //                    Image(systemName: "envelope")
+                //                        .foregroundColor(Color(.blue).opacity(0.43))
+                //                        .frame(width: 30, height: 80, alignment: .center)
+                //                    Text("Change Email")
+                //                }
+                NavigationLink(destination: ForgotPassword()){
+                    HStack{
+                        Image(systemName: "key")
+                            .foregroundColor(Color(.blue).opacity(0.43))
+                            .frame(width: 30, height: 80, alignment: .center)
+                        Text("Change Password")
                     }
-                    //Text(currentUser.userName)
 
-                HStack{
-                    Image(systemName: "envelope")
-                        .foregroundColor(Color(.blue).opacity(0.43))
-                        .frame(width: 30, height: 80, alignment: .center)
-                    Text("Change Email")
                 }
-                HStack{
-                    Image(systemName: "key")
-                        .foregroundColor(Color(.blue).opacity(0.43))
-                        .frame(width: 30, height: 80, alignment: .center)
-                    Text("Change Password")
-                }
-                }
-                .padding(.vertical, 20)
 
+            }
+            .navigationBarTitle("Settings")
 
-             .actionSheet(isPresented: $showCameraView, content: {
-            self.actionSheetAvatar
+            .actionSheet(isPresented: $showCameraView, content: {
+                self.actionSheetAvatar
 
-        })
-        .sheet(isPresented: $viewModel.isPresentingImagePicker, onDismiss: {updateUser()}, content: {
-            ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
-        })
+            })
+            .sheet(isPresented: $viewModel.isPresentingImagePicker, onDismiss: {updateUser()}, content: {
+                ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
+            })
 
         }
     }
+}
 
 
 //struct SettingsView_Previews: PreviewProvider {
@@ -97,48 +102,48 @@ struct SettingsView: View {
 
 extension SettingsView {
 
- func updateUser() {
-    self.showCameraView = false
-    if (viewModel.selectedImage?.pngData() != nil){
-    self.currentUser.avatar =  viewModel.selectedImage?.pngData()
+    func updateUser() {
+        self.showCameraView = false
+        if (viewModel.selectedImage?.pngData() != nil){
+            self.currentUser.avatar =  viewModel.selectedImage?.pngData()
+        }
     }
- }
 
 }
 
 
 
 struct ImagePicker: UIViewControllerRepresentable {
-typealias UIViewControllerType = UIImagePickerController
-typealias SourceType = UIImagePickerController.SourceType
-let sourceType: SourceType
-let completionHandler: (UIImage?) -> Void
-func makeUIViewController(context: Context) -> UIImagePickerController {
-let viewController = UIImagePickerController()
+    typealias UIViewControllerType = UIImagePickerController
+    typealias SourceType = UIImagePickerController.SourceType
+    let sourceType: SourceType
+    let completionHandler: (UIImage?) -> Void
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let viewController = UIImagePickerController()
         viewController.delegate = context.coordinator
         viewController.sourceType = sourceType
-return viewController
+        return viewController
     }
-func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
-func makeCoordinator() -> Coordinator {
-return Coordinator(completionHandler: completionHandler)
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(completionHandler: completionHandler)
     }
-final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-let completionHandler: (UIImage?) -> Void
-init(completionHandler: @escaping (UIImage?) -> Void) {
-self.completionHandler = completionHandler
+    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        let completionHandler: (UIImage?) -> Void
+        init(completionHandler: @escaping (UIImage?) -> Void) {
+            self.completionHandler = completionHandler
         }
-func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-let image: UIImage? = {
-if let image = info[.editedImage] as? UIImage {
-return image
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            let image: UIImage? = {
+                if let image = info[.editedImage] as? UIImage {
+                    return image
                 }
-return info[.originalImage] as? UIImage
+                return info[.originalImage] as? UIImage
             }()
-completionHandler(image)
+            completionHandler(image)
         }
-func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-completionHandler(nil)
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            completionHandler(nil)
         }
     }
 }

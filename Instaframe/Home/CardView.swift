@@ -36,7 +36,7 @@ struct CardView: View {
                 .resizable()
                 .rotationEffect(.degrees(90))
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 240, height: 360, alignment: .center)
+                .frame(width: 240, height: 380, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             VStack {
 
@@ -50,23 +50,13 @@ struct CardView: View {
                         .clipShape(Circle())
                         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 2)
                     Text(post.userID ?? "nil")
-                    Button(action: {
-                        self.showUserHome.toggle()
 
-                    }) {
-                        Image(systemName: "eye")
-                            .font(.system(size: 21))
-                            .foregroundColor(Color.blue)
-                    }
                     Spacer()
                 }
                 .padding(.bottom, 10)
                 .padding(.horizontal, 15)
 
-                HStack {
-                    Text("\(post.likeCount) likes.")
 
-                }
                 HStack {
                     if !preview {
                         Button(action: {
@@ -85,44 +75,62 @@ struct CardView: View {
 
                     }
 
-                    Spacer()
-                    if !preview {
-                        Button(action: {
-                            // Add Message View
-                        }) {
-                            Image(systemName: "message")
-                                .font(.system(size: 21))
-                                .foregroundColor(.black)
 
-                        }
-                    } else {
-                        Image(systemName: "message")
-                            .font(.system(size: 21))
-                            .foregroundColor(Color.black.opacity(0.5))
-
+//                    if !preview {
+//                        Button(action: {
+//                            // Add Message View
+//                        }) {
+//                            Image(systemName: "message")
+//                                .font(.system(size: 21))
+//                                .foregroundColor(.black)
+//
+//                        }
+//                    } else {
+//                        Image(systemName: "message")
+//                            .font(.system(size: 21))
+//                            .foregroundColor(Color.black.opacity(0.5))
+//
+//                    }
+                    if(post.likeCount>1){
+                        Text("\(post.likeCount) likes")
+                            .font(.subheadline)
+                    }else{
+                        Text("\(post.likeCount) like")
+                            .font(.subheadline)
                     }
 
                     Spacer()
 
-                    if !preview {
-                        Button(action: {
-                            shareImage.removeAll()
-                            shareImage.append(UIImage())
+                    Button(action: {
+                        self.showUserHome.toggle()
 
-                            shareSheet()
-                        }) {
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.system(size: 21))
-                                .foregroundColor(.black)
-                        }
-                    } else {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 21))
-                            .foregroundColor(Color.black.opacity(0.5))
-                        }
-//                    .sheet(isPresented: $showingSheet, content: {
-//                        ShareSheet(items: shareItems)
-//                    })
+                    }) {
+                        Text("More")
+                            .font(.subheadline)
+                            .frame(width: 55, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -3)
+                    }
+//                    if !preview {
+//                        Button(action: {
+//                            shareImage.removeAll()
+//                            shareImage.append(UIImage())
+//
+//                            shareSheet()
+//                        }) {
+//                            Image(systemName: "square.and.arrow.up")
+//                                .font(.system(size: 21))
+//                                .foregroundColor(.black)
+//                        }
+//                    } else {
+//                        Image(systemName: "square.and.arrow.up")
+//                            .font(.system(size: 21))
+//                            .foregroundColor(Color.black.opacity(0.5))
+//                        }
+////                    .sheet(isPresented: $showingSheet, content: {
+////                        ShareSheet(items: shareItems)
+////                    })
 
 
 

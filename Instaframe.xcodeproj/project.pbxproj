@@ -15,7 +15,6 @@
 		0305050225CF255C0066F19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0305050125CF255C0066F19D /* Assets.xcassets */; };
 		0305050525CF255C0066F19D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0305050425CF255C0066F19D /* Preview Assets.xcassets */; };
 		0305050825CF255C0066F19D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0305050625CF255C0066F19D /* LaunchScreen.storyboard */; };
-		0305051325CF256C0066F19D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0305051225CF256C0066F19D /* CloudKit.framework */; };
 		0305051A25CF27020066F19D /* InstaframePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305051925CF27020066F19D /* InstaframePost.swift */; };
 		0317F2DC25D09001002A21F8 /* MultiModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0317F2D725D09001002A21F8 /* MultiModal.swift */; };
 		0317F2DD25D09001002A21F8 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0317F2D825D09001002A21F8 /* ForgotPassword.swift */; };
@@ -31,6 +30,7 @@
 		035B6ABE25D1909D00081C58 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6ABD25D1909D00081C58 /* OnBoardingView.swift */; };
 		035B6AC125D190D600081C58 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC025D190D600081C58 /* WelcomeView.swift */; };
 		035B6AC425D1970800081C58 /* OnBoardAccountCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B6AC325D1970800081C58 /* OnBoardAccountCreate.swift */; };
+		03665221262280AE004295A1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0305051225CF256C0066F19D /* CloudKit.framework */; };
 		0378616B260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
 		0378616C260461390091F730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0378616A260461390091F730 /* GoogleService-Info.plist */; };
 		03787FA326091EC100EEE521 /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03787FA226091EC100EEE521 /* FollowView.swift */; };
@@ -112,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0305051325CF256C0066F19D /* CloudKit.framework in Frameworks */,
+				03665221262280AE004295A1 /* CloudKit.framework in Frameworks */,
 				B8BEA386FA23BBA6C92D8439 /* Pods_Instaframe.framework in Frameworks */,
 				0317F2FE25D0A017002A21F8 /* Lottie in Frameworks */,
 			);
