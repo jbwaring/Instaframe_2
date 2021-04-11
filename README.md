@@ -36,7 +36,7 @@ Used Swift Packages:
 >lottie-ios<br />
 >ViewInspector<br />
 
-# Code Quality Analysis
+## Code Quality Analysis
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jbwaring_Instaframe_2&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=jbwaring_Instaframe_2)
