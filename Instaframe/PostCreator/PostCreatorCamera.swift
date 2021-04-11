@@ -32,9 +32,6 @@ struct PostCreatorCamera: View {
     }
 }
 extension PostCreatorCamera {
-    func testfunc() {
-        
-    }
     final class ViewModel: ObservableObject {
         @Published var selectedImage: UIImage?
         @Published var isPresentingImagePicker = false

@@ -212,10 +212,7 @@ struct LoginMainFields: View {
 struct LoginWindowBackgroundView: View {
     var body: some View {
         ZStack {
-            
-            
-            VStack(spacing: 20) {
-            }
+
             Text("Instafame")
                 .foregroundColor(.white)
                 .font(.system(size: 48, weight: .bold, design: .rounded))
