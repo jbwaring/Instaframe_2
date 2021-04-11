@@ -36,6 +36,7 @@
 		03787FA326091EC100EEE521 /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03787FA226091EC100EEE521 /* FollowView.swift */; };
 		038B27E126028B3F006B32C0 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27E026028B3F006B32C0 /* LoginTest.swift */; };
 		038B27FB2602944F006B32C0 /* SignUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B27FA2602944F006B32C0 /* SignUpViewTests.swift */; };
+		0391AE162623449800AA8441 /* TestHomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0391AE152623449800AA8441 /* TestHomeFeedView.swift */; };
 		03A1D8C8260413ED008135F6 /* OnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */; };
 		03A1D8CE260422CD008135F6 /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1D8CD260422CD008135F6 /* ContentViewTests.swift */; };
 		03A3F90C25D0BC25005A4AEB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F90B25D0BC25005A4AEB /* Home.swift */; };
@@ -89,6 +90,7 @@
 		03787FA226091EC100EEE521 /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
 		038B27E026028B3F006B32C0 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		038B27FA2602944F006B32C0 /* SignUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTests.swift; sourceTree = "<group>"; };
+		0391AE152623449800AA8441 /* TestHomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHomeFeedView.swift; sourceTree = "<group>"; };
 		03A1D8C7260413ED008135F6 /* OnboardingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewTests.swift; sourceTree = "<group>"; };
 		03A1D8CD260422CD008135F6 /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
 		03A3F90B25D0BC25005A4AEB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				03A3F90B25D0BC25005A4AEB /* Home.swift */,
 				03C1080825D078C600BF7F05 /* CardView.swift */,
 				03B764B52601A07200469BFA /* HomeFeedView.swift */,
+				0391AE152623449800AA8441 /* TestHomeFeedView.swift */,
 				03787FA226091EC100EEE521 /* FollowView.swift */,
 			);
 			path = Home;
@@ -469,6 +472,7 @@
 				0317F2DC25D09001002A21F8 /* MultiModal.swift in Sources */,
 				0305050025CF25580066F19D /* Instaframe.xcdatamodeld in Sources */,
 				0317F2DF25D09001002A21F8 /* LoginView.swift in Sources */,
+				0391AE162623449800AA8441 /* TestHomeFeedView.swift in Sources */,
 				03A3F90C25D0BC25005A4AEB /* Home.swift in Sources */,
 				030504FB25CF25580066F19D /* SceneDelegate.swift in Sources */,
 				0358D87025D99F5B001A3117 /* PostCreatorPostPreview.swift in Sources */,
